@@ -214,14 +214,78 @@ header {
 .border {
   width: 40px;
   height: 4px;
-  background: #C1B6AD;;
+  background: #c1b6ad;
   border-radius: 10px;
+  margin: 0 0 90px 0;
 }
 
 .borders__one {
-  background: #665F55;;
+  background: #665f55;
 }
 
 .coffee-slider {
   margin: 0 0 20px 0;
+}
+
+/* favorites end */
+
+/* about start */
+
+.about {
+  text-align: center;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.about__text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 125%;
+  color: #403f3d;
+  margin: 11px 0 23px 0;
+}
+
+.tt {
+  position: relative;
+  right: 20px;
+}
+
+.about__text i {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 125%;
+  color: #b0907a;
+}
+
+.about__images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 20px;
+}
+
+.about__column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.about__column img {
+  max-width: 100%;
+  height: auto;
+  margin: 18px;
+}
+
+.large-vertical {
+  max-height: 100%;
+}
+
+.small-horizontal {
+  max-width: 100%;
 }
