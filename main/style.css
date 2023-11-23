@@ -266,7 +266,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  margin: 20px;
+  margin: 20px 20px 85px 20px;
 }
 
 .about__column {
@@ -288,4 +288,98 @@ header {
 
 .small-horizontal {
   max-width: 100%;
+}
+
+/* about end */
+
+/* mobile start */
+
+.mobile {
+  display: flex;
+  flex-direction: row;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.mobile__info {
+  max-width: 45%;
+}
+
+.mobile-phone {
+  max-width: 55%;
+  padding-left: 120px;
+}
+
+.mobile__title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 125%;
+  color: #403f3d;
+  margin: 143px 0px 40px 0;
+}
+
+.mobile__title i {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 125%;
+  color: #b0907a;
+}
+
+.mobile__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #403f3d;
+  margin-bottom: 40px;
+  margin-left: 5px;
+}
+
+.button-link {
+  width: 200px;
+  height: 64px;
+  display: flex;
+  text-decoration: none;
+  border: 1px solid #665f55;
+  border-radius: 100px;
+  padding: 12px 20px;
+}
+
+.button-text {
+  display: block;
+}
+
+.button-image {
+  display: block;
+}
+
+.first-sentence {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 140%;
+  text-align: center;
+  color: #403f3d;
+  position: relative;
+  bottom: 5px;
+  left: 9px;
+}
+
+.second-sentence {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #403f3d;
+  position: relative;
+  bottom: 4px;
+  left: 8px;
+}
+
+.marketplaces {
+  display: flex;
+  gap: 20px;
+  margin-left: 5px;
 }
