@@ -1,2 +1,62 @@
 /* main start */
 
+.main-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 125%;
+  text-align: center;
+  color: #403f3d;
+  max-width: 60%;
+  margin: 0 auto 40px auto;
+}
+
+.main-title i {
+  font-style: italic;
+  color: #b0907a;
+}
+
+/* product-tabs start */
+
+.product-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.label-with-image {
+    display: flex;
+    align-items: center;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+label {
+  border: 1px solid #C1B6AD;
+  border-radius: 30px;
+  padding: 3px 13px 3px 9px;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #403f3d;
+}
+
+label img {
+  width: 35px;
+  height: 40px;
+  padding: 5px 5px 5px 0px;
+  cursor: pointer;
+}
+
+input[type='radio']:checked + label {
+  background: #665F55;
+  color: #E1D4C9;
+}
+
+input[type='radio']:hover + label {
+    background: #665F55;
+    color: #E1D4C9;
+  }
