@@ -71,14 +71,15 @@ input[type='radio']:hover + label {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin:  0 auto 60px auto;
+  margin: 0 auto 60px auto;
 }
 
 .product-wrapper {
   position: relative;
-  border: 1px solid #C1B6AD;
+  border: 1px solid #c1b6ad;
   border-radius: 42px;
   margin: 0 0 38px 0;
+  cursor: pointer;
 }
 
 .product-wrapper__title {
@@ -90,6 +91,26 @@ input[type='radio']:hover + label {
   margin: 17px 0 15px 21px;
 }
 
+.product-wrapper__image {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 40px;
+  max-width: 310px;
+  max-height: 310px;
+}
+
+.product-wrapper__img {
+  transition: 1s; 
+  display: block;
+  position: relative;
+  bottom: 15px;
+  right: 15px;
+}
+
+.product-wrapper__img:hover {
+  transform: scale(0.91);
+}
+
 .product-wrapper__text {
   position: relative;
   font-weight: 400;
@@ -97,7 +118,7 @@ input[type='radio']:hover + label {
   line-height: 150%;
   color: #403f3d;
   max-width: 270px;
-  margin:  0 0 58px 23px;
+  margin: 0 0 58px 23px;
   bottom: 5px;
   right: 4px;
 }
