@@ -1,5 +1,13 @@
 /* main start */
 
+.menu-wrap {
+  display: inline-block;
+  border-bottom: 2px solid #403f3d;
+  position: relative;
+  top: -2px;
+  right: 10px;
+}
+
 .main-title {
   font-style: normal;
   font-weight: 600;

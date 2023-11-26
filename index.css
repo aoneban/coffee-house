@@ -36,7 +36,6 @@
   
   .nav__item {
     flex-grow: 1;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -44,9 +43,34 @@
     cursor: pointer;
   }
   
-  .nav__item a {
+  .item_1 a,
+  .item_2 a,
+  .item_3 a,
+  .item_4 a,
+  .item_5 a,
+  .item_6 a,
+  .item_7 a {
+    position: relative;
     color: #403f3d;
-    padding: 0 10px 0 0;
+    padding: 0 8px 0 0;
+    bottom: 3px;
+    left: -7px;
+  }
+
+  .item_8 a {
+    color: #403f3d;
+  }
+
+  .logo {
+    position: relative;
+    top: 2px;
+    left: 4px;
+  }
+
+  .coffee-img-mini {
+    position: relative;
+    top: 2px;
+    right: -2px;
   }
   
   .item_2,
@@ -55,9 +79,11 @@
   }
   
   .item_1 {
-    margin-left: 40px;
+    position: relative;
+    margin-left: 43px;
+    top: 5px;
   }
-  
+
   /* header finish */
 
   /* footer start */
