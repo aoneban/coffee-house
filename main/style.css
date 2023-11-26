@@ -3,16 +3,39 @@
 }
 
 .menu-wrap {
-  position: relative;
   display: inline-block;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.4s ease;
-  right: 10px;
-  top: -2px;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-.menu-wrap:hover {
-  border-bottom: 2px solid #403f3d;
+.menu-wrap::before,
+.menu-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #403F3D;
+  transition: width 0.3s ease-out, left 0.3s ease-out, right 0.3s ease-out;
+}
+
+.menu-wrap::before {
+  left: 50%;
+}
+
+.menu-wrap::after {
+  right: 50%;
+}
+
+.menu-wrap:hover::before {
+  left: 0;
+  width: 50%;
+}
+
+.menu-wrap:hover::after {
+  right: 0%; 
+  width: 50%;
 }
 
 /* enjoy start */
@@ -31,7 +54,7 @@
 .text-block {
   position: absolute;
   max-width: 50%;
-  top: 100px;
+  top: 52px;
   left: 80px;
   color: white;
   padding-left: 20px;
@@ -45,7 +68,7 @@
   font-size: 72px;
   line-height: 105%;
   color: #e1d4c9;
-  margin-bottom: 40px;
+  margin-bottom: 41px;
 }
 
 .text-block__title i {
