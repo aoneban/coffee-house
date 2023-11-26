@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  html {
+    scroll-behavior: smooth;
+    }
   
   body {
     font-family: 'Inter', sans-serif;
@@ -52,13 +56,22 @@
   .item_7 a {
     position: relative;
     color: #403f3d;
-    padding: 0 8px 0 0;
+    padding: 0 0 3px 0;
     bottom: 3px;
     left: -7px;
   }
 
   .item_8 a {
     color: #403f3d;
+  }
+
+  .link-hover {
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.5s ease;
+  }
+
+  .link-hover:hover {
+    border-bottom: 2px solid #403f3d;
   }
 
   .logo {

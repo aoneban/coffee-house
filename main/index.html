@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee House</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,10 +24,10 @@
               <a href="#"><img src="../assets/images/logo.png" alt="logo" class="logo"></a>
             </li>
             <li class="nav__item item_2"></li>
-            <li class="nav__item item_3"><a href="#">Favorite coffee</a></li>
-            <li class="nav__item item_4"><a href="#">About</a></li>
-            <li class="nav__item item_5"><a href="#">Mobile app</a></li>
-            <li class="nav__item item_6"><a href="#">Contact us</a></li>
+            <li class="nav__item item_3"><a href="#favorites"class="link-hover">Favorite coffee</a></li>
+            <li class="nav__item item_4"><a href="#about" class="link-hover">About</a></li>
+            <li class="nav__item item_5"><a href="#mobile" class="link-hover">Mobile app</a></li>
+            <li class="nav__item item_6"><a href="#contact" class="link-hover">Contact us</a></li>
             <li class="nav__item item_7"></li>
             <li class="nav__item item_8">
               <div class="menu-wrap">
@@ -39,42 +40,46 @@
         </nav>
       </header>
         <div class="enjoy">
-            <img src="../assets/images/main.png" alt="coffee" class="presentation">
+          <img src="../assets/images/main.png" alt="coffee" class="presentation">
             <div class="text-block">
-                <h2 class="text-block__title"><i>Enjoy</i> premium coffee at our charming cafe</h2>
-                <p class="text-block__text">With its inviting atmosphere and delicious coffee options, 
-                the Coffee House Resource is a popular destination for coffee lovers and those
-                seeking a warm and inviting space to enjoy their favorite beverage.
-                </p>
-                <a href="../menu/index.html" class="btn">
-                  <span class="menu-text">Menu</span>
-                  <img src="../assets/images/coffee-cup.png" alt="coffee-cup" class="coffee-img-hover">
-                </a>
-              </div>
+              <h1 class="text-block__title"><i>Enjoy</i> premium coffee at our charming cafe</h1>
+              <p class="text-block__text">With its inviting atmosphere and delicious coffee options, 
+              the Coffee House Resource is a popular destination for coffee lovers and those
+              seeking a warm and inviting space to enjoy their favorite beverage.
+              </p>
+              <a href="../menu/index.html" class="btn">
+                <span class="menu-text">Menu</span>
+                <img src="../assets/images/coffee-cup.png" alt="coffee-cup" class="coffee-img-hover">
+              </a>
+          </div>
         </div>
-        <div class="favorites">
+        <div id="favorites" class="favorites">
             <h2>Choose your <i>favorite</i> coffee</h2>
             <img src="../assets/images/coffee-slider-1.png" alt="coffee" class="coffee-slider">
             <h4>S’mores Frappuccino</h4>
             <p class="favorites__text">This new drink takes an espresso and mixes it with brown sugar
-                 and cinnamon before being topped with oat milk.
+            and cinnamon before being topped with oat milk.
             </p>
             <p class="favorites__price">$5.50</p>
             <div class="borders">
-                <div class="border borders__one"></div>
-                <div class="border borders__two"></div>
-                <div class="border borders__three"></div>
+              <div class="border borders__one"></div>
+              <div class="border borders__two"></div>
+              <div class="border borders__three"></div>
             </div>
             <div class="arrows">
               <button class="arrow arrow-left">
-                <img src="../assets/icons/arrow-left.svg" alt="coffee">
+                <svg class="my-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.5 7H1M1 7L7 1M1 7L7 13" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </button>
               <button class="arrow arrow-right">
-                <img src="../assets/icons/arrow-right.svg" alt="coffee">
+                <svg class="my-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 7H13.5M13.5 7L7.5 1M13.5 7L7.5 13" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </button>
             </div>
         </div>
-        <div class="about">
+        <div id="about"class="about">
           <p class="about__text"><span class="tt">Resource is <i>the perfect and cozy place</i> where</span> you can enjoy a variety of hot beverages, 
             relax, <span class="tt">catch up with friends, or get some work done.</span></p>
           <div class="flex-container">
@@ -96,7 +101,7 @@
             </div>
           </div>
         </div>
-        <div class="mobile">
+        <div id="mobile" class="mobile">
           <div class="mobile__info">
             <h3 class="mobile__title"><i>Download</i> our apps to start ordering</h3>
             <p class="mobile__text">Download the Resource app today and experience the comfort
@@ -104,12 +109,20 @@
             </p>
             <div class="marketplaces">
               <a href="#" class="button-link">
-                <img src="../assets/icons/apple.svg" alt="apple" class="button-image">
+                <svg class="button-image" width="28" height="33" viewBox="0 0 28 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.7073 17.6307C22.6704 13.6324 26.065 11.6872 26.2203 11.5966C24.2977 8.86366 21.3178 8.49026 20.2707 8.46048C17.7679 8.20369 15.3403 9.92062 14.0654 9.92062C12.765 9.92062 10.8017 8.48529 8.68579 8.52747C5.96293 8.56841 3.41566 10.1055 2.0186 12.4923C-0.864579 17.359 1.28572 24.5108 4.04802 28.4446C5.42981 30.3712 7.04444 32.5223 9.15784 32.4466C11.2254 32.3635 11.9978 31.1614 14.4929 31.1614C16.9651 31.1614 17.6903 32.4466 19.8457 32.3983C22.0647 32.3635 23.4618 30.463 24.7952 28.519C26.392 26.3108 27.0333 24.1362 27.0588 24.0245C27.0066 24.0071 22.7493 22.4229 22.7073 17.6307Z" fill="#403F3D"/>
+                  <path d="M18.6357 5.87268C19.7477 4.51675 20.5086 2.67205 20.2974 0.800049C18.6879 0.86952 16.675 1.88554 15.5159 3.21169C14.4903 4.38029 13.5742 6.29571 13.8109 8.097C15.6189 8.2285 17.4753 7.20752 18.6357 5.87268Z" fill="#403F3D"/>
+                  </svg>
                 <span class="button-text"><span class="first-sentence">Available on the</span><br>
                 <span class="second-sentence">App Store</span></span>
               </a>
               <a href="#" class="button-link">
-                <img src="../assets/icons/google-play.svg" alt="google-play" class="button-image">
+                <svg class="button-image" width="31" height="34" viewBox="0 0 31 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.755796 2.20297C0.393349 2.57289 0.183594 3.14884 0.183594 3.89471V30.4994C0.183594 31.2453 0.393349 31.8212 0.755796 32.1911L0.845252 32.2723L16.1359 17.37V17.0181L0.845252 2.11575L0.755796 2.20297Z" fill="#403F3D"/>
+                  <path d="M23.0776 22.34L17.9863 17.37V17.0181L23.0837 12.0482L23.1979 12.1128L29.2345 15.4617C30.9573 16.4121 30.9573 17.976 29.2345 18.9324L23.1979 22.2753L23.0776 22.34Z" fill="#403F3D"/>
+                  <path d="M22.2733 23.2007L17.0617 18.1195L1.68164 33.1166C2.25384 33.7031 3.18695 33.7737 4.24807 33.1873L22.2733 23.2007Z" fill="#403F3D"/>
+                  <path d="M22.2733 11.1876L4.24807 1.20103C3.18695 0.620579 2.25384 0.691254 1.68164 1.27772L17.0617 16.2688L22.2733 11.1876Z" fill="#403F3D"/>
+                  </svg>
                 <span class="button-text"><span class="first-sentence">Available on</span><br>
                 <span class="second-sentence">Google Play</span></span>
               </a>
@@ -118,7 +131,7 @@
           <img src="../assets/images/mobile-screens.png" alt="mobile-phone" class="mobile-phone">
         </div>
       <footer>
-        <div class="footer-wrapper">
+        <div id="contact" class="footer-wrapper">
           <div class="footer-wrapper__left">
             <h2 class="footer-wrapper__left-title">Sip, Savor, Smile.<br><i>It’s coffee time!</i></h2>
             <div class="social-media">

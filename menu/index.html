@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee House</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../normalize.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,13 +22,13 @@
         <nav>
           <ul class="nav">
             <li class="nav__item item_1">
-              <a href="../main/index.html"><img src="../assets/images/logo.png" alt="logo" class="logo"/></a>
+              <a href="../main/index.html"><img src="../assets/images/logo.png" alt="logo" class="logo"></a>
             </li>
             <li class="nav__item item_2"></li>
-            <li class="nav__item item_3"><a href="#">Favorite coffee</a></li>
-            <li class="nav__item item_4"><a href="#">About</a></li>
-            <li class="nav__item item_5"><a href="#">Mobile app</a></li>
-            <li class="nav__item item_6"><a href="#">Contact us</a></li>
+            <li class="nav__item item_3"><a href="../main/#favorites"class="link-hover">Favorite coffee</a></li>
+            <li class="nav__item item_4"><a href="../main/#about" class="link-hover">About</a></li>
+            <li class="nav__item item_5"><a href="../main/#mobile" class="link-hover">Mobile app</a></li>
+            <li class="nav__item item_6"><a href="#contact" class="link-hover">Contact us</a></li>
             <li class="nav__item item_7"></li>
             <li class="nav__item item_8">
               <div class="menu-wrap">
@@ -40,9 +41,9 @@
         </nav>
       </header>
       <main>
-        <h2 class="main-title">
+        <h1 class="main-title">
           Behind each of our cups hides an <i>amazing surprise</i>
-        </h2>
+        </h1>
         <div class="product-tabs">
           <input type="radio" id="option1" name="options" value="1" checked/>
           <label for="option1" class="label-with-image">
@@ -128,7 +129,7 @@
         </div>
       </main>
       <footer>
-        <div class="footer-wrapper">
+        <div id="contact" class="footer-wrapper">
           <div class="footer-wrapper__left">
             <h2 class="footer-wrapper__left-title">Sip, Savor, Smile.<br><i>It’s coffee time!</i></h2>
             <div class="social-media">

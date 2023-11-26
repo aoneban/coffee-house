@@ -90,24 +90,24 @@
   right: 25%;
   top: 49%;
   transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease; 
+  transition: opacity 0.5s ease;
   opacity: 0;
 }
 
 .menu-text {
-  transition: margin-left 0.3s ease, margin-right 0.3s ease; 
-  margin-left: 0; 
-  margin-right: 0; 
+  transition: margin-left 0.3s ease, margin-right 0.3s ease;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .btn:hover .menu-text {
-  margin-left: -8px; 
-  margin-right: 8px; 
+  margin-left: -8px;
+  margin-right: 8px;
 }
 
 .btn:hover .coffee-img-hover {
   opacity: 1;
-  left: calc(65%); 
+  left: calc(65%);
 }
 
 /* enjoy end */
@@ -155,9 +155,10 @@
   cursor: pointer;
   width: 60px;
   height: 60px;
-  border: 1px solid #403F3D;
+  border: 1px solid #403f3d;
   border-radius: 100px;
   transform: matrix(1, 0, 0, -1, 0, 0);
+  transition: background 0.3s ease;
 }
 
 .arrow-right {
@@ -168,9 +169,20 @@
   cursor: pointer;
   width: 60px;
   height: 60px;
-  border: 1px solid #403F3D;
+  border: 1px solid #403f3d;
   border-radius: 100px;
   transform: matrix(1, 0, 0, -1, 0, 0);
+  transition: background 0.3s ease;
+}
+
+.arrow:hover {
+  background: #665f55;
+  border: 1px solid #665f55;
+  border-radius: 100px;
+}
+
+.arrow:hover .my-svg path {
+  stroke: #E1D4C9;
 }
 
 .favorites__text {
@@ -359,6 +371,7 @@
 }
 
 .button-link {
+  position: relative;
   width: 200px;
   height: 64px;
   display: flex;
@@ -368,12 +381,48 @@
   padding: 12px 20px;
 }
 
+.button-image path {
+  transition: fill 0.3s ease;
+}
+
+.first-sentence {
+  transition: color 0.3s ease;
+}
+
+.second-sentence {
+  transition: color 0.3s ease;
+}
+
+.button-link {
+  transition: background 0.3s ease;
+}
+
+.button-link:hover .button-image path{
+  fill: #E1D4C9;
+}
+
+.button-link:hover .first-sentence {
+  color: #E1D4C9;
+}
+
+.button-link:hover .second-sentence {
+  color: #E1D4C9;
+}
+
+.button-link:hover {
+  background: #665F55;
+}
+
 .button-text {
+  position: absolute;
+  left: 54px;
   display: block;
 }
 
 .button-image {
-  display: block;
+  position: absolute;
+  bottom: 15px;
+  left: 21px;
 }
 
 .first-sentence {
