@@ -8,6 +8,7 @@
   text-decoration: none;
   right: 4px;
   bottom: 3px;
+  padding-bottom: 3px;
 }
 
 .menu-wrap::before,
@@ -89,7 +90,7 @@
   line-height: 150%;
   color: #e1d4c9;
   max-width: 85%;
-  margin-bottom: 61px;
+  margin-bottom: 60px;
 }
 
 .btn {

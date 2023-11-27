@@ -6,6 +6,7 @@
   position: relative;
   top: -2px;
   right: 4px;
+  padding-bottom: 3px;
 }
 
 .menu-wrap a {
@@ -107,9 +108,9 @@ input[type='radio']:hover + label .tabs-wrapper {
 /* product-list start */
 
 .product-list {
-  max-width: 94.5%;
+  max-width: 110%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 0 auto 60px auto;
 }
