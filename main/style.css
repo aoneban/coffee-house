@@ -6,6 +6,8 @@
   display: inline-block;
   position: relative;
   text-decoration: none;
+  right: 4px;
+  bottom: 3px;
 }
 
 .menu-wrap::before,

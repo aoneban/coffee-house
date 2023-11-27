@@ -248,7 +248,7 @@ footer {
   font-size: 16px;
   line-height: 150%;
   color: #e1d4c9;
-  margin-left: 24px;
+  margin-left: 23px;
   margin-bottom: 20px;
   text-decoration: none;
 }
@@ -264,4 +264,25 @@ footer {
   position: relative;
   top: 2px;
   right: 7px;
+}
+
+.footer__text-one,
+.footer__text-two,
+.footer__text-three {
+  position: relative;
+}
+
+.footer__text-one {
+  top: 3px;
+  right: 4px;
+}
+
+.footer__text-two {
+  top: 1px;
+  right: 2px;
+}
+
+.footer__text-three {
+  top: 1px;
+  right: 3px;
 }

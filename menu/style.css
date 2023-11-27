@@ -34,10 +34,15 @@
 .label-with-image {
   display: flex;
   align-items: center;
+  padding: 8px 11px;
+  position: relative;
+  bottom: 1px;
+  left: -2px;
 }
 
 input[type='radio'] {
   display: none;
+  padding: 0 16px;
 }
 
 label {
@@ -53,11 +58,22 @@ label {
   margin: 0 0 38px 0;
 }
 
-label img {
-  width: 35px;
-  height: 40px;
-  padding: 5px 5px 5px 0px;
+label .tabs-wrapper {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #C1B6AD;;
   cursor: pointer;
+  margin: 0 6px 0 0;
+  right: 4px;
+}
+
+.tab-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 input[type='radio']:checked + label {
@@ -65,9 +81,19 @@ input[type='radio']:checked + label {
   color: #e1d4c9;
 }
 
+input[type='radio']:checked + label .tabs-wrapper {
+  background: #E1D4C9;
+}
+
 input[type='radio']:hover + label {
   background: #665f55;
   color: #e1d4c9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input[type='radio']:hover + label .tabs-wrapper {
+  background: #e1d4c9;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* product-tabs end */
@@ -116,6 +142,10 @@ input[type='radio']:hover + label {
 }
 
 .product-wrapper__img:hover {
+  transform: scale(0.91);
+}
+
+.product-wrapper:hover .product-wrapper__img {
   transform: scale(0.91);
 }
 
