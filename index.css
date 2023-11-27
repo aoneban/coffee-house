@@ -164,6 +164,41 @@ footer {
   color: #b0907a;
 }
 
+.footer-wrapper__right-content {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+.footer-wrapper__right-content::before,
+.footer-wrapper__right-content::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #E1D4C9;
+  transition: width 0.3s ease-out, left 0.3s ease-out, right 0.3s ease-out;
+}
+
+.footer-wrapper__right-content::before {
+  left: 50%;
+}
+
+.footer-wrapper__right-content::after {
+  right: 50%;
+}
+
+.footer-wrapper__right-content:hover::before {
+  left: 0;
+  width: 50%;
+}
+
+.footer-wrapper__right-content:hover::after {
+  right: 0%; 
+  width: 50%;
+}
+
 .social-media__wrap {
   position: relative;
   cursor: pointer;

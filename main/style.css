@@ -6,7 +6,6 @@
   display: inline-block;
   position: relative;
   text-decoration: none;
-  overflow: hidden;
 }
 
 .menu-wrap::before,
