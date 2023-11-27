@@ -8,6 +8,12 @@
   right: 4px;
 }
 
+.menu-wrap a {
+  cursor: default!important;
+  pointer-events: none;
+  user-select: none;
+}
+
 .main-title {
   font-style: normal;
   font-weight: 600;
