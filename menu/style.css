@@ -86,10 +86,12 @@ label .tabs-wrapper {
 input[type='radio']:checked + label {
   background: #665f55;
   color: #e1d4c9;
+  cursor: default;
 }
 
 input[type='radio']:checked + label .tabs-wrapper {
   background: #E1D4C9;
+  cursor: default;
 }
 
 input[type='radio']:hover + label {
