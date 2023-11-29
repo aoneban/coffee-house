@@ -18,7 +18,7 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #403F3D;
+  background-color: #403f3d;
   transition: width 0.3s ease-out, left 0.3s ease-out, right 0.3s ease-out;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .menu-wrap:hover::after {
-  right: 0%; 
+  right: 0%;
   width: 50%;
 }
 
@@ -46,11 +46,17 @@
   max-width: 94.5%;
   position: relative;
   margin: 0 auto 94px auto;
+  height: 648px;
+  overflow: hidden;
+  border-radius: 40px;
 }
 
 .presentation {
   margin: 0 auto;
-  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  border-radius: 40px;
+  top: -37px;
 }
 
 .text-block {
@@ -207,7 +213,7 @@
 }
 
 .arrow:hover .my-svg path {
-  stroke: #E1D4C9;
+  stroke: #e1d4c9;
 }
 
 .favorites__text {
@@ -422,20 +428,20 @@
   transition: background 0.3s ease;
 }
 
-.button-link:hover .button-image path{
-  fill: #E1D4C9;
+.button-link:hover .button-image path {
+  fill: #e1d4c9;
 }
 
 .button-link:hover .first-sentence {
-  color: #E1D4C9;
+  color: #e1d4c9;
 }
 
 .button-link:hover .second-sentence {
-  color: #E1D4C9;
+  color: #e1d4c9;
 }
 
 .button-link:hover {
-  background: #665F55;
+  background: #665f55;
 }
 
 .button-text {
@@ -480,3 +486,58 @@
 }
 
 /* mobile end */
+
+@media (max-width: 768px) {
+  .enjoy {
+    max-width: 89.5%;
+  }
+  .presentation {
+    max-width: 182%;
+    position: absolute;
+    top: 0%;
+    right: -41%;
+  }
+  .text-block {
+    max-width: 95%;
+    left: 38px;
+  }
+  .item_2,
+  .item_3,
+  .item_4,
+  .item_5,
+  .item_6,
+  .item_8 {
+    display: none;
+  }
+  .item_7 {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    border: 1px solid var(--border-dark, #665f55);
+    flex-grow: 1 !important;
+    position: absolute;
+    right: 40px;
+  }
+
+  .burger-top {
+    background-image: url('../assets/icons/vector-one.svg');
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 16px;
+    height: 2px;
+    stroke-width: 1.5px;
+    stroke: var(--text-dark, #403f3d);
+  }
+  .burger-bottom {
+    background-image: url('../assets/icons/vector-one.svg');
+    position: absolute;
+    bottom: 35%;
+    left: 30%;
+    width: 16px;
+    height: 2px;
+    stroke-width: 1.5px;
+    stroke: var(--text-dark, #403f3d);
+  }
+}
