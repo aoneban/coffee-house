@@ -10,7 +10,7 @@
 }
 
 .menu-wrap a {
-  cursor: default!important;
+  cursor: default !important;
   pointer-events: none;
   user-select: none;
 }
@@ -70,7 +70,7 @@ label .tabs-wrapper {
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  background-color: #C1B6AD;;
+  background-color: #c1b6ad;
   cursor: pointer;
   margin: 0 6px 0 0;
   right: 4px;
@@ -90,7 +90,7 @@ input[type='radio']:checked + label {
 }
 
 input[type='radio']:checked + label .tabs-wrapper {
-  background: #E1D4C9;
+  background: #e1d4c9;
   cursor: default;
 }
 
@@ -123,6 +123,7 @@ input[type='radio']:hover + label .tabs-wrapper {
   border-radius: 42px;
   margin: 0 0 38px 0;
   cursor: pointer;
+  /* min-height: 73.2vh; */
 }
 
 .product-wrapper__title {
@@ -143,7 +144,7 @@ input[type='radio']:hover + label .tabs-wrapper {
 }
 
 .product-wrapper__img {
-  transition: 1s; 
+  transition: 1s;
   display: block;
   position: relative;
   bottom: 15px;
@@ -179,4 +180,71 @@ input[type='radio']:hover + label .tabs-wrapper {
   color: #403f3d;
   left: 20px;
   bottom: 20px;
+}
+
+.reload-products,
+.reload {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .main-title {
+    max-width: 90%;
+  }
+
+  .product-list .product-wrapper:nth-last-child(-n + 4) {
+    display: none;
+  }
+
+  .product-list {
+    max-width: 96%;
+    margin: 0 auto;
+  }
+
+  .reload {
+    display: block;
+  }
+
+  .reload-product {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 97px auto;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid var(--border-dark, #665f55);
+  }
+
+  .reload {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .product-wrapper {
+    min-height: 66.2vw;
+  }
+
+  .product-wrapper__text {
+    min-height: 7.8vh;
+    margin: 0 0 23px 23px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-title {
+    font-size: 32px;
+  }
+  .product-tabs {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .product-wrapper {
+    min-height: 133.5vw;
+  }
 }
