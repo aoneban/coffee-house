@@ -45,8 +45,8 @@
 .enjoy {
   max-width: 94.5%;
   position: relative;
-  margin: 0 auto 94px auto;
-  height: 648px;
+  margin: 0 auto 97px auto;
+  height: 645px;
   overflow: hidden;
   border-radius: 40px;
 }
@@ -335,7 +335,7 @@
 }
 
 .item2 {
-  flex: 5;
+  flex: 5 1 1%;
 }
 
 .item3 {
@@ -609,23 +609,20 @@
   }
 }
 
-@media (max-width: 750px) {
-  .enjoy {
-    margin: 0 auto 101px auto;
-  }
-
+@media (max-width: 767px) {
   .enjoy {
     max-width: 91.5%;
     height: 550px;
-}
+    margin: 0 auto 101px auto;
+  }
 
-.presentation {
+  .presentation {
     max-width: 309%;
     position: absolute;
     top: 0%;
     right: -361px;
     height: auto;
-}
+  }
 
   .text-block {
     max-width: 100%;
@@ -639,7 +636,6 @@
     font-size: 42px;
     line-height: 115%;
   }
-
   .text-block__text {
     max-width: 100%;
     font-size: 16px;
@@ -649,6 +645,9 @@
     bottom: 3px;
     margin-bottom: 57px;
   }
+}
+
+@media (max-width: 580px) {
 
   .favorites h2,
   .favorites h2 i {
@@ -684,7 +683,7 @@
     margin-bottom: 62px;
     gap: 0;
   }
-/* 
+  /* 
   .large-vertical {
     right: 20px;
   }
@@ -710,28 +709,29 @@
     /* gap: 0px; */
     margin: 0 auto;
     height: 636px;
-}
+  }
 
-.item1, .item4 {
+  .item1,
+  .item4 {
     flex: 7;
-    max-width: 95%;
+    max-width: 97%;
     height: auto;
     margin: 0 auto;
     /* height: 76%; */
     max-height: 93%;
-}
+  }
 
-.item img {
+  .item img {
     max-width: 213%;
     transition: 1s;
     display: block;
     border-radius: 20px;
-}
+  }
 
-.large-vertical {
+  .large-vertical {
     right: 190px;
-    top: -60px;
-}
+    top: -66px;
+  }
 
   .mobile__title,
   .mobile__title i {
@@ -757,5 +757,4 @@
     padding-left: 6px;
     padding-top: 41px;
   }
-
 }
