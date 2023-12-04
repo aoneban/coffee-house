@@ -327,7 +327,7 @@
 }
 
 .item img:hover {
-  transform: scale(0.91);
+  transform: scale(0.92);
 }
 
 .item1 {
@@ -500,6 +500,10 @@
 }
 
 @media (max-width: 1280px) {
+  .btn:hover .menu-text {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   .enjoy {
     max-width: 89.5%;
   }
@@ -609,6 +613,12 @@
   }
 }
 
+@media (max-width: 800px) {
+  .item img:hover {
+    transform: scale(0.95);
+  }
+}
+
 @media (max-width: 767px) {
   .enjoy {
     max-width: 91.5%;
@@ -648,6 +658,10 @@
 }
 
 @media (max-width: 580px) {
+
+  .item img:hover {
+    transform: scale(0.91);
+  }
 
   .favorites h2,
   .favorites h2 i {
