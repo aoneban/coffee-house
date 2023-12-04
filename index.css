@@ -317,11 +317,14 @@ footer {
   }
   .social-media__wrap:hover .social-image path {
     stroke: #e1d4c9;
+    cursor: default;
   }
   .footer-wrapper__right-content::before,
   .footer-wrapper__right-content::after {
     background-color: #665f55;
+    cursor: default;
   }
+  
 }
 
 @media (max-width: 768px) {
