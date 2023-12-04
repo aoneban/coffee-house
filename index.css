@@ -310,6 +310,20 @@ footer {
   }
 }
 
+@media (max-width: 769px) {
+  .social-media__wrap:hover {
+    background: #665f55;
+    cursor: default;
+  }
+  .social-media__wrap:hover .social-image path {
+    stroke: #e1d4c9;
+  }
+  .footer-wrapper__right-content::before,
+  .footer-wrapper__right-content::after {
+    background-color: #665f55;
+  }
+}
+
 @media (max-width: 768px) {
   .item_2,
   .item_3,
@@ -355,7 +369,7 @@ footer {
   .change .burger-top {
     transform: translate(0, 4px) rotate(-45deg);
   }
-  
+
   .change .burger-bottom {
     transform: translate(0, -4px) rotate(45deg);
   }

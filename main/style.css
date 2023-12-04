@@ -619,6 +619,49 @@
   }
 }
 
+@media (max-width: 769px) {
+
+  a:hover {
+    cursor: default;
+  } 
+
+ .arrow:hover {
+    background: #e1d4c9;
+    border: 1px solid #665f55;
+    border-radius: 100px;
+    cursor: default;
+  }
+
+  .arrow:hover .my-svg path {
+    stroke: #665f55;
+  }
+
+  .item img:hover {
+    transform: scale(1);
+  } 
+
+  .button-link:hover .button-image path {
+    fill: #665f55;
+    cursor: default;
+  }
+  
+  .button-link:hover .first-sentence {
+    color: #665f55;
+    cursor: default;
+  }
+  
+  .button-link:hover .second-sentence {
+    color: #665f55;
+    cursor: default;
+  }
+  
+  .button-link:hover {
+    background: #e1d4c9;
+    cursor: default;
+  } 
+
+}
+
 @media (max-width: 767px) {
   .enjoy {
     max-width: 91.5%;
@@ -658,7 +701,6 @@
 }
 
 @media (max-width: 580px) {
-
   .item img:hover {
     transform: scale(0.91);
   }
