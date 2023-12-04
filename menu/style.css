@@ -253,6 +253,15 @@ input[type='radio']:hover + label .tabs-wrapper {
 
   .product-wrapper:hover .product-wrapper__img {
     transform: scale(1);
+    cursor: default;
+  }
+
+  .product-wrapper:hover {
+    cursor: default;
+  }
+
+  .reload-product {
+    cursor: default;
   }
 }
 

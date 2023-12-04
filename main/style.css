@@ -638,6 +638,7 @@
 
   .item img:hover {
     transform: scale(1);
+    cursor: default;
   } 
 
   .button-link:hover .button-image path {
