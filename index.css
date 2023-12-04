@@ -348,8 +348,16 @@ footer {
     margin: 6px 0;
     transition: 0.4s;
     z-index: 10000000;
-    left: 16px;
+    left: 12px;
     bottom: -10px;
+  }
+
+  .change .burger-top {
+    transform: translate(0, 4px) rotate(-45deg);
+  }
+  
+  .change .burger-bottom {
+    transform: translate(0, -4px) rotate(45deg);
   }
 }
 
