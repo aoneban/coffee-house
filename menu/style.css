@@ -186,6 +186,12 @@ input[type='radio']:hover + label .tabs-wrapper {
   display: none;
 }
 
+@media (max-width: 1300px) {
+  .product-list {
+    gap: 1%;
+  }
+}
+
 @media (max-width: 900px) {
   .main-title {
     max-width: 90%;
@@ -198,6 +204,7 @@ input[type='radio']:hover + label .tabs-wrapper {
   .product-list {
     max-width: 96%;
     margin: 0 auto;
+    gap: 0;
   }
 
   .reload {
@@ -208,7 +215,7 @@ input[type='radio']:hover + label .tabs-wrapper {
     position: relative;
     cursor: pointer;
     display: block;
-    margin: 0 auto 97px auto;
+    margin: 0 auto 101px auto;
     text-align: center;
     width: 60px;
     height: 60px;
@@ -233,6 +240,18 @@ input[type='radio']:hover + label .tabs-wrapper {
   }
 }
 
+@media (max-width: 800px) {
+  .reload-product {
+    margin: 0 auto 96px auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .product-list {
+    gap: 1%;
+  }
+}
+
 @media (max-width: 500px) {
   .main-title {
     font-size: 32px;
@@ -240,10 +259,16 @@ input[type='radio']:hover + label .tabs-wrapper {
   .product-tabs {
     gap: 10px;
   }
+  .product-list {
+    gap: 0;
+  }
 }
 
 @media (max-width: 400px) {
   .product-wrapper {
     min-height: 31.7em;
+  }
+  .reload-product {
+    margin: 0 auto 99px auto;
   }
 }
