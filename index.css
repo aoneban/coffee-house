@@ -289,7 +289,6 @@ footer {
 }
 
 @media (max-width: 1280px) {
-
   footer {
     height: auto;
     max-width: 89.5%;
@@ -312,7 +311,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
   .item_2,
   .item_3,
   .item_4,
@@ -321,9 +319,10 @@ footer {
   .item_8 {
     display: none;
   }
-  
+
   .item_7 {
     position: relative;
+    cursor: pointer;
     width: 44px;
     height: 44px;
     border-radius: 100px;
@@ -333,31 +332,28 @@ footer {
     right: 40px;
   }
 
-  .burger-top {
-    background-image: url('../assets/icons/vector-one.svg');
-    position: absolute;
-    top: 35%;
-    left: 30%;
-    width: 16px;
-    height: 2px;
-    stroke-width: 1.5px;
-    stroke: var(--text-dark, #403f3d);
-  }
-  .burger-bottom {
-    background-image: url('../assets/icons/vector-one.svg');
-    position: absolute;
-    bottom: 35%;
-    left: 30%;
-    width: 16px;
-    height: 2px;
-    stroke-width: 1.5px;
-    stroke: var(--text-dark, #403f3d);
+  .burger-wrapper {
+    display: block;
+    height: 40px;
+    top: 0;
   }
 
+  .burger-top,
+  .burger-bottom {
+    display: block;
+    position: relative;
+    width: 18px;
+    height: 2px;
+    background-color: #403f3d;
+    margin: 6px 0;
+    transition: 0.4s;
+    z-index: 10000000;
+    left: 16px;
+    bottom: -10px;
+  }
 }
 
 @media (max-width: 740px) {
-
   footer {
     max-width: 90.5%;
   }
