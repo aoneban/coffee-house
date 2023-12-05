@@ -227,6 +227,12 @@ input[type='radio']:checked + label .tabs-wrapper {
   }
 }
 
+@media (max-width: 769px) {
+  .reload-product {
+    cursor: default;
+  }
+}
+
 @media (max-width: 680px) {
   .product-list {
     gap: 1%;
