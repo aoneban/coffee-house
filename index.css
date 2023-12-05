@@ -91,6 +91,7 @@ header {
   position: relative;
   top: 0px;
   left: 1px;
+  z-index: 100;
 }
 
 .coffee-img-mini {
@@ -302,6 +303,7 @@ footer {
     flex-grow: 1 !important;
     position: absolute;
     right: 40px;
+    z-index: 100;
   }
 
   .burger-wrapper {
@@ -319,17 +321,9 @@ footer {
     background-color: #403f3d;
     margin: 6px 0;
     transition: 0.4s;
-    z-index: 10000000;
+    z-index: 100;
     left: 12px;
     bottom: -10px;
-  }
-
-  .change .burger-top {
-    transform: translate(0, 4px) rotate(-45deg);
-  }
-
-  .change .burger-bottom {
-    transform: translate(0, -4px) rotate(45deg);
   }
 }
 
@@ -397,5 +391,63 @@ footer {
 
   .social-media__wrap:hover .social-image path {
     stroke: #403f3d;
+  }
+}
+
+/* burger-menu */
+.burger-screen {
+  max-width: 100%;
+  margin: 70px auto;
+}
+
+.hidden-screen {
+  overflow: hidden;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #e1d4c9;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  text-decoration: none;
+  padding: 20px 0;
+  display: block;
+  transition: 0.3s;
+  color: var(--text-dark, #403f3d);
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.change .burger-top {
+  transform: translate(0, 4px) rotate(-45deg);
+}
+
+.change .burger-bottom {
+  transform: translate(0, -4px) rotate(45deg);
+}
+
+.slide-over {
+  width: 100%;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
   }
 }
