@@ -14,7 +14,9 @@ function changeBurgerToLink(item) {
   changeBurger(item)
 }
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', closeBurger);
+
+const closeBurger = () => {
   const windowInnerWidth = window.innerWidth;
   const wrapper = document.querySelector('.burger-wrapper');
   const slider = document.getElementById('mySidenav');
@@ -23,4 +25,4 @@ window.addEventListener('resize', () => {
     wrapper.classList.remove('change');
     document.body.classList.remove('hidden-screen');
   }
-});
+}

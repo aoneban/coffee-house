@@ -17,6 +17,15 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
+    <div id="mySidenav" class="sidenav">
+      <div class="burger-screen">
+        <a href="../main/#favorites" onclick="changeBurgerToLink(this)">Favorite coffee</a>
+        <a href="../main/#about" onclick="changeBurgerToLink(this)">About</a>
+        <a href="../main/#mobile" onclick="changeBurgerToLink(this)">Mobile app</a>
+        <a href="#contact" onclick="changeBurgerToLink(this)">Contact us</a>
+        <a href="./index.html">Menu</a>
+      </div>
+    </div>
     <header>
       <nav>
         <ul class="nav">
@@ -29,7 +38,7 @@
           <li class="nav__item item_5"><a href="../main/#mobile" class="link-hover">Mobile app</a></li>
           <li class="nav__item item_6"><a href="#contact" class="link-hover">Contact us</a></li>
           <li class="nav__item item_7">
-            <span class="burger-wrapper" onclick="myFunction(this)">
+            <span class="burger-wrapper" onclick="changeBurger(this)">
               <span class="burger-top"></span>
               <span class="burger-bottom"></span>
             </span>
