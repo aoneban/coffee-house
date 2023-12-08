@@ -1,4 +1,5 @@
 import { data } from "../../static/data.js";
+import { func } from "./modal.js";
 
 //////   start switching product categories /////////
 
@@ -7,6 +8,8 @@ const generateProductCards = (data) => {
   data.forEach((el) => {
     const product = document.createElement('div');
     product.classList.add('product-wrapper');
+    product.addEventListener('click', func)
+    product.setAttribute('id', el.id);
     if (data.length > 4) {
       product.classList.add('hidden-class');
       document.querySelector('.reload-product').style.display = 'block';
@@ -50,11 +53,11 @@ radioButtons.forEach((radio) => {
 window.addEventListener('resize', () => {
   const windowWidth = window.innerWidth;
   const item = document.querySelectorAll('.product-list .product-wrapper')
-  if (windowWidth < 769 && s.length > 4) {
+  if (windowWidth < 769 && item.length > 4) {
     item.forEach(el => el.classList.add('hidden-class'))
     document.querySelector('.reload-product').style.display = 'block';
   } else {
-    document.querySelector('.reload-product').style.display = 'none';
+    // document.querySelector('.reload-product').style.display = 'none';
   }
 })
 
