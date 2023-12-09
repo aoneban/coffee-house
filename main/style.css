@@ -443,6 +443,18 @@
 
 /* mobile end */
 
+/* video layouts start*/
+
+.video-container {
+  width: 100%; 
+}
+video {
+  width: 86em; 
+  height: auto;
+}
+
+/* video layouts end*/
+
 @media (hover: hover) {
   .btn:hover .menu-text {
     margin-left: -8px;
@@ -580,6 +592,11 @@
 }
 
 @media (max-width: 1030px) {
+  video {
+    position: relative;
+    right: 30%;
+  }
+
   .item2,
   .item3 {
     display: none;
@@ -650,6 +667,10 @@
 }
 
 @media (max-width: 580px) {
+  video {
+    right: 87%;
+    width: 66em;
+}
   .favorites h2,
   .favorites h2 i {
     font-size: 32px;

@@ -1,13 +1,13 @@
 import { data } from '../../static/data.js';
 
 const product = document.querySelectorAll('.product-wrapper');
-export function fun(){
-  product.forEach((el) => {
-    el.addEventListener('click', );
-  });
-}
+// export function fun(){
+//   product.forEach((el) => {
+//     el.addEventListener('click', );
+//   });
+// }
 
-export function func(event) {  
+export function modalWindowGenerator(event) {  
   const currentClickProduct = event.currentTarget;
   const exampleAttr = currentClickProduct.getAttribute('id');
   const result = data.filter((el) => el.id == exampleAttr);
