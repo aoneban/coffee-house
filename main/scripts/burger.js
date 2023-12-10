@@ -14,8 +14,6 @@ function changeBurger(item) {
     changeBurger(item)
   }
   
-  window.addEventListener('resize', closeBurger);
-  
   const closeBurger = () => {
     const windowInnerWidth = window.innerWidth;
     const wrapper = document.querySelector('.burger-wrapper');
@@ -27,3 +25,4 @@ function changeBurger(item) {
     }
   }
   
+  window.addEventListener('resize', closeBurger);

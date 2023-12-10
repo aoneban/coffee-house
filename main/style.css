@@ -194,7 +194,7 @@
   line-height: 150%;
   text-align: center;
   color: #403f3d;
-  max-width: 33%;
+  max-width: 45%;
   margin: 0 auto;
 }
 
@@ -229,6 +229,27 @@
 
 .coffee-slider {
   margin: 0 0 20px 0;
+}
+
+.slider {
+  border: 2px solid yellow;
+  max-width: 33%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider-line {
+  display: flex;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.slider-base {
+  width: 100%;
+  height: auto;
+  
 }
 
 /* favorites end */
@@ -446,11 +467,39 @@
 /* video layouts start*/
 
 .video-container {
-  width: 100%; 
+  width: 100%;
 }
 video {
-  width: 86em; 
+  width: 86em;
   height: auto;
+}
+
+#myVideo::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+#myVideo::-webkit-media-controls {
+  display: none !important;
+}
+
+#myVideo::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+#myVideo::-webkit-media-slider-container {
+  display: none !important;
+}
+
+#myVideo::-webkit-media-slider-thumb {
+  display: none !important;
+}
+
+#myVideo::-moz-range-thumb {
+  display: none !important;
+}
+
+#myVideo::-moz-range-track {
+  display: none !important;
 }
 
 /* video layouts end*/
@@ -544,7 +593,7 @@ video {
   }
 
   .favorites__text {
-    max-width: 60%;
+    max-width: 85%;
   }
   .text-default {
     right: 0;
@@ -670,7 +719,12 @@ video {
   video {
     right: 87%;
     width: 66em;
-}
+  }
+
+  .wrapper-slider {
+    max-width: 100%;
+  }
+
   .favorites h2,
   .favorites h2 i {
     font-size: 32px;

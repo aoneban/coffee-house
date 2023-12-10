@@ -13,8 +13,9 @@
       rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="../index.css">
-    <script src="./script.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
     <script src="./scripts/burger.js" defer></script>
+    <script src="./scripts/video.js" defer></script>
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
@@ -73,12 +74,18 @@
     </div>
     <div id="favorites" class="favorites">
       <h2>Choose your <i>favorite</i> coffee</h2>
-      <img src="../assets/images/coffee-slider-1.png" alt="coffee" class="coffee-slider">
-      <h4>S’mores Frappuccino</h4>
-      <p class="favorites__text">This new drink takes an espresso and mixes it with brown sugar
-      and cinnamon before being topped with oat milk.
-      </p>
-      <p class="favorites__price">$5.50</p>
+      <div class="slider">
+        <div class="slider-line">
+          <!-- <div class="slider-base">
+            <img src="../assets/images/coffee-slider-1.png" alt="coffee" class="coffee-slider">
+            <h4>S’mores Frappuccino</h4>
+            <p class="favorites__text">This new drink takes an espresso and mixes it with brown sugar
+            and cinnamon before being topped with oat milk.
+            </p>
+            <p class="favorites__price">$5.50</p>
+          </div> -->
+        </div>
+      </div>
       <div class="borders">
         <div class="border borders__one"></div>
         <div class="border borders__two"></div>

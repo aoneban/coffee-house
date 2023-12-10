@@ -14,7 +14,7 @@ function changeBurger(item) {
       element.classList.remove('change');
     }
     changeBurger(item);
-  }//
+  }
   
   const closeBurger = () => {
     const windowInnerWidth = window.innerWidth;
