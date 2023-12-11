@@ -18,6 +18,8 @@ dataSlider.forEach((element) => {
 });
 
 (function () {
+  let startX;
+  let startY;
   let count = 0;
   let borderCount = 0;
   const slideWidth = 30;
@@ -41,19 +43,46 @@ dataSlider.forEach((element) => {
     wrapperSlider.style.transform = `translateX(-${count}em)`;
   };
 
-  // let intervalId;
+  let intervalId;
 
-  // function pauseInterval() {
-  //   clearInterval(intervalId);
-  // }
+  function pauseInterval() {
+    clearInterval(intervalId);
+  }
 
-  // slider.addEventListener('mouseover', function () {
-  //   pauseInterval();
-  // });
+  slider.addEventListener('mouseover', function () {
+    pauseInterval();
+  });
 
-  // slider.addEventListener('mouseout', function () {
-  //   startInterval();
-  // });
+  slider.addEventListener('mouseout', function () {
+    startInterval();
+  });
+
+  slider.addEventListener('touchstart', function(event) {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+  });
+  
+  slider.addEventListener('touchmove', function(event) {
+    if (!startX || !startY) {
+      return;
+    }
+  
+    let currentX = event.touches[0].clientX;
+    let currentY = event.touches[0].clientY;
+  
+    let diffX = startX - currentX;
+    let diffY = startY - currentY;
+  
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
+        borderCount = 0;
+        sliderMoveToLeft();
+      }
+    }
+  
+    startX = null;
+    startY = null;
+  });
 
   const generateWith = () => {
     const border = document.getElementsByClassName('borders__one-in');
@@ -82,8 +111,8 @@ dataSlider.forEach((element) => {
     intervalId = setInterval(generateWith, 50);
   }
 
-  //pauseInterval();
-  //startInterval();
+  pauseInterval();
+  startInterval();
 
   arrowRight.addEventListener('click', sliderMoveToLeft);
   arrowLeft.addEventListener('click', sliderMoveToRight);
