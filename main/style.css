@@ -243,7 +243,7 @@
 }
 
 .slider {
-  max-width: 33%;
+  max-width: 30em;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -603,7 +603,7 @@ video {
   }
 
   .favorites__text {
-    max-width: 85%;
+    max-width: 100%;
   }
   .text-default {
     right: 0;
@@ -740,15 +740,12 @@ video {
     font-size: 32px;
   }
 
-  .coffee-slider {
-    max-width: 91%;
-  }
   .arrow {
     display: none;
   }
 
   .favorites__text {
-    max-width: 93%;
+    max-width: 100%;
   }
   .about__text,
   .about__text i {
@@ -820,5 +817,15 @@ video {
     max-width: 98%;
     padding-left: 6px;
     padding-top: 41px;
+  }
+}
+
+@media (max-width: 390px) {
+  .coffee-slider {
+    max-width: 22em;
+    margin: 0 -4px 14px 0;
+  }
+  .slider-base {
+    margin-left: 16px;
   }
 }

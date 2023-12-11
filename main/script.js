@@ -41,19 +41,19 @@ dataSlider.forEach((element) => {
     wrapperSlider.style.transform = `translateX(-${count}em)`;
   };
 
-  let intervalId;
+  // let intervalId;
 
-  function pauseInterval() {
-    clearInterval(intervalId);
-  }
+  // function pauseInterval() {
+  //   clearInterval(intervalId);
+  // }
 
-  slider.addEventListener('mouseover', function () {
-    pauseInterval();
-  });
+  // slider.addEventListener('mouseover', function () {
+  //   pauseInterval();
+  // });
 
-  slider.addEventListener('mouseout', function () {
-    startInterval();
-  });
+  // slider.addEventListener('mouseout', function () {
+  //   startInterval();
+  // });
 
   const generateWith = () => {
     const border = document.getElementsByClassName('borders__one-in');
@@ -82,8 +82,8 @@ dataSlider.forEach((element) => {
     intervalId = setInterval(generateWith, 50);
   }
 
-  pauseInterval();
-  startInterval();
+  //pauseInterval();
+  //startInterval();
 
   arrowRight.addEventListener('click', sliderMoveToLeft);
   arrowLeft.addEventListener('click', sliderMoveToRight);
