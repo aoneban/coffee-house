@@ -731,10 +731,6 @@ video {
     width: 66em;
   }
 
-  .wrapper-slider {
-    max-width: 100%;
-  }
-
   .favorites h2,
   .favorites h2 i {
     font-size: 32px;
@@ -819,7 +815,7 @@ video {
     padding-top: 41px;
   }
 }
-
+/* 
 @media (max-width: 390px) {
   .coffee-slider {
     max-width: 22em;
@@ -828,4 +824,4 @@ video {
   .slider-base {
     margin-left: 16px;
   }
-}
+} */

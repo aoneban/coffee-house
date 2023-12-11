@@ -76,7 +76,11 @@ dataSlider.forEach((element) => {
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (diffX > 0) {
         borderCount = 0;
-        sliderMoveToLeft();
+        sliderMoveToLeft()
+      } else {
+        // Свайп вправ
+        borderCount = 0;
+        sliderMoveToRight()
       }
     }
   

@@ -14,6 +14,7 @@
     >
     <link rel="stylesheet" href="./style.css" >
     <link rel="stylesheet" href="../index.css" >
+    <script src="./index.js" type="module" defer></script>
     <script src="./scripts/menu.js" type="module" defer></script>
     <script src="./scripts/burger.js" defer></script>
     <script src="./scripts/modal.js" type="module" defer></script>
@@ -25,7 +26,10 @@
         <a href="../main/#about" onclick="changeBurgerToLink(this)">About</a>
         <a href="../main/#mobile" onclick="changeBurgerToLink(this)">Mobile app</a>
         <a href="#contact" onclick="changeBurgerToLink(this)">Contact us</a>
-        <a href="./index.html">Menu</a>
+        <a href="./index.html" class="burger-menu">
+          Menu
+          <img src="../assets/images/coffee-burger-cup.png" alt="coffee-cup" class="coffee-img-burger">
+        </a>
       </div>
     </div>
     <header>
@@ -160,5 +164,6 @@
         </div>
       </div>
     </footer>
+    <div class="modal"></div>
   </body>
 </html>
