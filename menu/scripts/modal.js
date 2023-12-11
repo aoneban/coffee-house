@@ -41,15 +41,15 @@ export function modalWindowGenerator(event) {
       <p class="additives">Additives</p>
       <div class="buttons-add">
           <div class="button-container">
-              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="${result[0].additives[0].name}">
+              <input type="button" class="btn-add" onclick="myFunc()" value="${result[0].additives[0].name}">
               <span class="size-inside">1</span>
           </div>
           <div class="button-container">
-              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="${result[0].additives[1].name}">
+              <input type="button" class="btn-add" onclick="alert('Hello World!')" value="${result[0].additives[1].name}">
               <span class="size-inside">2</span>
           </div>
           <div class="button-container">
-              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="${result[0].additives[2].name}">
+              <input type="button" class="btn-add" onclick="alert('Hello World!')" value="${result[0].additives[2].name}">
               <span class="size-inside">3</span>
           </div>
       </div>
@@ -77,3 +77,4 @@ const deleteWrap = (event) => {
     modalWrap.remove();
   }
 };
+

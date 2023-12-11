@@ -607,7 +607,8 @@ footer {
   justify-content: center;
 }
 
-.btn-size {
+.btn-size,
+.btn-add {
   padding: 10px 7px 10px 43px;
   border: 1px solid var(--border-light, #c1b6ad);
   border-radius: 30px;
@@ -695,6 +696,10 @@ footer {
 
 input[type='button']:active {
   background-color: #403f3d;
+}
+
+input[type='button']:active .size-inside {
+  background-color: #e1d4c9;
 }
 
 @-webkit-keyframes zoom {
