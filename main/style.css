@@ -194,7 +194,7 @@
   line-height: 150%;
   text-align: center;
   color: #403f3d;
-  max-width: 45%;
+  max-width: 95%;
   margin: 0 auto;
 }
 
@@ -224,7 +224,18 @@
 }
 
 .borders__one {
-  background: #665f55;
+  position: relative;
+}
+
+.borders__one-in {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: #665F55;
+  border-radius: 10px;
 }
 
 .coffee-slider {
@@ -232,7 +243,6 @@
 }
 
 .slider {
-  border: 2px solid yellow;
   max-width: 33%;
   margin: 0 auto;
   overflow: hidden;

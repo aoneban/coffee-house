@@ -3,6 +3,7 @@ import { dataSlider } from '../../static/dataSlider.js';
 const wrapperSlider = document.querySelector('.slider-line');
 const arrowRight = document.querySelector('.arrow-right');
 const arrowLeft = document.querySelector('.arrow-left');
+const slider = document.querySelector('.slider');
 
 dataSlider.forEach((element) => {
   const slider = document.createElement('div');
@@ -16,27 +17,74 @@ dataSlider.forEach((element) => {
   wrapperSlider.append(slider);
 });
 
-(function(){
+(function () {
   let count = 0;
-  const slideWidth = 30; 
-  const maxCount = slideWidth * 2; 
+  let borderCount = 0;
+  const slideWidth = 30;
+  const maxCount = slideWidth * 2;
 
   const sliderMoveToLeft = () => {
-      count += slideWidth;
-      if (count > maxCount) {
-        count = 0;
-      }
-      wrapperSlider.style.transform = `translateX(-${count}em)`;
-  }
+    borderCount = 0;
+    count += slideWidth;
+    if (count > maxCount) {
+      count = 0;
+    }
+    wrapperSlider.style.transform = `translateX(-${count}em)`;
+  };
 
   const sliderMoveToRight = () => {
+    borderCount = 0;
     count -= slideWidth;
     if (count < 0) {
       count = maxCount;
     }
     wrapperSlider.style.transform = `translateX(-${count}em)`;
-}
-  
+  };
+
+  let intervalId;
+
+  function pauseInterval() {
+    clearInterval(intervalId);
+  }
+
+  slider.addEventListener('mouseover', function () {
+    pauseInterval();
+  });
+
+  slider.addEventListener('mouseout', function () {
+    startInterval();
+  });
+
+  const generateWith = () => {
+    const border = document.getElementsByClassName('borders__one-in');
+    let currentBorder;
+    if (count == 0) {
+      currentBorder = 0;
+    } else if (count == 30) {
+      currentBorder = 1;
+    } else {
+      currentBorder = 2;
+    }
+    for (let i = 0; i <= 2; i++) {
+      border[i].style.display = 'none';
+      border[i].style.width = 0;
+    }
+    border[currentBorder].style.display = 'block';
+    border[currentBorder].style.width = borderCount + '%';
+    if (borderCount == 100) {
+      borderCount = 0;
+      sliderMoveToLeft();
+    }
+    borderCount += 1;
+  };
+
+  function startInterval() {
+    intervalId = setInterval(generateWith, 50);
+  }
+
+  pauseInterval();
+  startInterval();
+
   arrowRight.addEventListener('click', sliderMoveToLeft);
   arrowLeft.addEventListener('click', sliderMoveToRight);
-})()
+})();

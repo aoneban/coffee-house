@@ -1,0 +1,19 @@
+{
+  "name": "aoneban-jsfe2023q4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/aoneban-JSFE2023Q4.git"
+  },
+  "author": "Ashot Bahiran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/aoneban-JSFE2023Q4/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/aoneban-JSFE2023Q4#readme"
+}
