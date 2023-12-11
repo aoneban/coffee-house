@@ -1,83 +1,79 @@
 import { data } from '../../static/data.js';
 
-const product = document.querySelectorAll('.product-wrapper');
-// export function fun(){
-//   product.forEach((el) => {
-//     el.addEventListener('click', );
-//   });
-// }
+const modal = document.querySelector('.modal')
 
-export function modalWindowGenerator(event) {  
+export function modalWindowGenerator(event) {
+  document.body.style.position = 'fixed';
   const currentClickProduct = event.currentTarget;
   const exampleAttr = currentClickProduct.getAttribute('id');
   const result = data.filter((el) => el.id == exampleAttr);
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
   modal.setAttribute('id', 'myModal');
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
+  modal.addEventListener('click', function(event) {
+    deleteWrap(event);
+  })
   const modalWrapper = document.createElement('div');
   modalWrapper.classList.add('modal-wrapper');
-  const modalContent = document.createElement('div');
-  modalContent.classList.add('modal-content');
-  const modalImg = document.createElement('img');
-  modalImg.classList.add('modal-content');
-  
-  modalImg.src = result[0].image;
-  const h3 = document.createElement('h3');
-  h3.classList.add('title-h3');
-  h3.textContent = result[0].name;
-  const text = document.createElement('p');
-  text.classList.add('text-content');
-  text.textContent =
-    'Fragrant black coffee with Jameson Irish whiskey and whipped milk';
-  const span = document.createElement('span');
-  span.classList.add('close');
-  span.innerHTML = '&times;';
-  span.addEventListener('click', function() {
-    const modal = document.getElementById('myModal');
-    modal.remove();
-  });
-  const size = document.createElement('p');
-  size.classList.add('size');
-  size.textContent = 'Size'
-  const sizeWrapper = document.createElement('div');
-  sizeWrapper.classList.add('size-wrapper');
-  const buttons = document.createElement('div');
-  buttons.classList.add('buttons-wrapper')
-  buttons.innerHTML = `
-  <div class="product__tabs-modal">
-      <input type="radio" id="S" name="options" value="S" checked >
-      <label for="S" class="label-image">
-        <span class="tabs__wrapper-modal">
-        &nbsp;&nbsp;&nbsp;S
-        </span>
-        ${result[0].sizes.s.size}
-      </label>
-      <input type="radio" id="tea" name="options" value="tea" >
-      <label for="tea" class="label-image">
-        <span class="tabs__wrapper-modal">
-        &nbsp;&nbsp;M
-        </span>
-        ${result[0].sizes.m.size}
-      </label>
-      <input type="radio" id="dessert" name="options" value="dessert" >
-      <label for="dessert" class="label-image">
-        <span class="tabs__wrapper-modal">
-        &nbsp;&nbsp;&nbsp;L
-        </span>
-        ${result[0].sizes.l.size}
-      </label>
+  modalWrapper.innerHTML = `
+  <div class="modal-content-left">
+    <div class="modal-img-wrapper">
+      <img src="${result[0].image}" class="modal-img">
     </div>
+  </div>
+  <div class="modal-content-right">
+        <h3 class="title-h3">${result[0].name}</h3>
+      <p class="modal-description">${result[0].description}</p>
+      <p class="modal-size">Size</p>
+      <div class="buttons-size">
+          <div class="button-container">
+              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="200 ml">
+              <span class="size-inside">S</span>
+          </div>
+          <div class="button-container">
+              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="300 ml">
+              <span class="size-inside">M</span>
+          </div>
+          <div class="button-container">
+              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="400 ml">
+              <span class="size-inside">L</span>
+          </div>
+      </div>
+      <p class="additives">Additives</p>
+      <div class="buttons-add">
+          <div class="button-container">
+              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="Sugar">
+              <span class="size-inside">1</span>
+          </div>
+          <div class="button-container">
+              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="Cinnamon">
+              <span class="size-inside">2</span>
+          </div>
+          <div class="button-container">
+              <input type="button" class="btn-size" onclick="alert('Hello World!')" value="Syrup">
+              <span class="size-inside">3</span>
+          </div>
+      </div>
+      <div class="modal-price-wrap">
+          <p>Total:</p>
+          <p>$7.00</p>
+      </div>
+      <p class="empty"><img src="../assets/images/info-empty.png" alt="img-empty" class="img-empty">&nbsp;&nbsp;&nbsp;&nbsp;The cost is not final. Download our mobile app to see the final price and place your order.
+           Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
+      </p>
+      <button type="button" class="close-button">Close</button>
+  </div>
   `
+  console.log(result);
 
-  //console.log(result);
-
-
-  sizeWrapper.append(buttons)
-  modalContent.append(h3, text, size, sizeWrapper);
-  modalWrapper.append(modalImg, modalContent);
-  modal.append(modalWrapper, span);
+  modal.append(modalWrapper);
   document.body.append(modal);
+}
 
-
+function deleteWrap(event) {
+  if (event.target == modal) {
+    const modalWrap = document.querySelector('.modal-wrapper');
+    document.querySelector('.modal').style.display = 'none';
+    document.body.style.position = '';
+    modalWrap.remove()
+  }
 }
