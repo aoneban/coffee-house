@@ -104,14 +104,14 @@ const calculationOptions = () => {
       buttons2.forEach((el) => el.classList.remove('active-button'));
       const current = event.currentTarget;
       current.classList.toggle('active-button');
-      if (current.value == '300 ml' || current.value == '100 g') {
+       if (current.value == '300 ml' || current.value == '100 g') {
         newPrice = +basePrice + addPrice + 0.5;
         newPrice = newPrice.toFixed(2);
       } else if (current.value == '400 ml' || current.value == '200 g') {
         newPrice = +basePrice + addPrice + 1.0;
         newPrice = newPrice.toFixed(2);
       } else {
-        newPrice = +basePrice;
+        newPrice = +basePrice + addPrice;
         newPrice = newPrice.toFixed(2);
       }
       price.innerHTML = `$${newPrice}`;
