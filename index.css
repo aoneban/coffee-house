@@ -387,6 +387,10 @@ footer {
     background-color: #e1d4c9;
   }
 
+  .btn-add:hover + .size-inside {
+    background-color: #e1d4c9;
+  }
+
   .close-button:hover {
     cursor: pointer;
     background-color: #665f55;
