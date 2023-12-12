@@ -3,7 +3,7 @@ import { data } from '../../static/data.js';
 const modal = document.createElement('div');
 
 export function modalWindowGenerator(event) {
-  setTimeout(myFunc, 0);
+  setTimeout(calculationOptions, 0);
   document.body.style.position = 'fixed';
   const currentClickProduct = event.currentTarget;
   const exampleAttr = currentClickProduct.getAttribute('id');
@@ -84,7 +84,14 @@ const deleteWrap = (event) => {
   }
 };
 
-const myFunc = () => {
+const closeModal = () => {
+  const close = document.querySelector('.close-button');
+  close.addEventListener('click', () => {
+    deleteModal();
+  });
+};
+
+const calculationOptions = () => {
   const price = document.querySelector('.total-price');
   let basePrice = Number(price.innerText.replace('$', ''));
   let newPrice = Number(price.innerText.replace('$', ''));
@@ -97,10 +104,10 @@ const myFunc = () => {
       buttons2.forEach((el) => el.classList.remove('active-button'));
       const current = event.currentTarget;
       current.classList.toggle('active-button');
-      if (current.value == '300 ml') {
+      if (current.value == '300 ml' || current.value == '100 g') {
         newPrice = +basePrice + addPrice + 0.5;
         newPrice = newPrice.toFixed(2);
-      } else if (current.value == '400 ml') {
+      } else if (current.value == '400 ml' || current.value == '200 g') {
         newPrice = +basePrice + addPrice + 1.0;
         newPrice = newPrice.toFixed(2);
       } else {
@@ -129,9 +136,3 @@ const myFunc = () => {
   closeModal();
 };
 
-const closeModal = () => {
-  const close = document.querySelector('.close-button');
-  close.addEventListener('click', () => {
-    deleteModal();
-  });
-};

@@ -376,6 +376,17 @@ footer {
     width: 50%;
   }
 
+  .btn-size:hover,
+  .btn-add:hover {
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    cursor: pointer;
+    background-color: #665F55;
+    color: #E1D4C9;
+  }
+
   .link-hover:hover::after {
     right: 0%;
     width: 50%;
@@ -571,7 +582,7 @@ footer {
   font-weight: 600;
   line-height: 140%;
   margin-bottom: 30px;
-  border-top: 1px solid #C1B6AD;
+  border-top: 1px solid #c1b6ad;
   padding-top: 15px;
 }
 
@@ -736,7 +747,7 @@ input[type='button']:active .size-inside {
 
 /* modal-window end*/
 
-@media(max-width: 620px) {
+@media (max-width: 620px) {
   .modal-content-left {
     display: none;
   }
