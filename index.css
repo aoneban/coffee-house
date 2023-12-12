@@ -692,7 +692,7 @@ footer {
 }
 
 /* Add Animation */
-.modal-content,
+.modal-wrapper,
 #caption {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;

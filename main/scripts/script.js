@@ -5,9 +5,10 @@ const arrowRight = document.querySelector('.arrow-right');
 const arrowLeft = document.querySelector('.arrow-left');
 const slider = document.querySelector('.slider');
 
-dataSlider.forEach((element) => {
+dataSlider.forEach((element, ind) => {
   const slider = document.createElement('div');
   slider.classList.add('slider-base');
+  slider.classList.add(`base-${ind}`);
   slider.innerHTML = `
           <img src="${element.image}" alt="coffee" class="coffee-slider">
           <h4>${element.name}</h4>
@@ -78,7 +79,6 @@ dataSlider.forEach((element) => {
         borderCount = 0;
         sliderMoveToLeft()
       } else {
-        // Свайп вправ
         borderCount = 0;
         sliderMoveToRight()
       }
