@@ -1,13 +1,15 @@
 import { data } from '../../static/data.js';
 
-const modal = document.querySelector('.modal');
+const modal = document.createElement('div');
 
 export function modalWindowGenerator(event) {
+  setTimeout(myFunc, 0);
   document.body.style.position = 'fixed';
   const currentClickProduct = event.currentTarget;
   const exampleAttr = currentClickProduct.getAttribute('id');
   const result = data.filter((el) => el.id == exampleAttr);
   modal.setAttribute('id', 'myModal');
+  modal.classList.add('modal');
   modal.style.display = 'flex';
   modal.addEventListener('click', function (event) {
     deleteWrap(event);
@@ -49,13 +51,13 @@ export function modalWindowGenerator(event) {
               <span class="size-inside">2</span>
           </div>
           <div class="button-container">
-              <input type="button" class="btn-add" onclick="myFunc()" value="${result[0].additives[2].name}">
+              <input type="button" class="btn-add" value="${result[0].additives[2].name}">
               <span class="size-inside">3</span>
           </div>
       </div>
       <div class="modal-price-wrap">
           <p>Total:</p>
-          <p>$7.00</p>
+          <p class="total-price">$${result[0].price}</p>
       </div>
       <p class="empty"><img src="../assets/images/info-empty.png" alt="img-empty" class="img-empty">&nbsp;&nbsp;&nbsp;&nbsp;The cost is not final. Download our mobile app to see the final price and place your order.
            Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
@@ -69,13 +71,67 @@ export function modalWindowGenerator(event) {
   document.body.append(modal);
 }
 
+const deleteModal = () => {
+  const modalWrap = document.querySelector('.modal-wrapper');
+  document.querySelector('.modal').style.display = 'none';
+  document.body.style.position = '';
+  modalWrap.remove();
+};
+
 const deleteWrap = (event) => {
   if (event.target == modal) {
-    const modalWrap = document.querySelector('.modal-wrapper');
-    document.querySelector('.modal').style.display = 'none';
-    document.body.style.position = '';
-    modalWrap.remove();
+    deleteModal();
   }
 };
 
+const myFunc = () => {
+  const price = document.querySelector('.total-price');
+  let basePrice = Number(price.innerText.replace('$', ''));
+  let newPrice = Number(price.innerText.replace('$', ''));
+  let addPrice = 0;
+  const buttons = document.querySelectorAll('.btn-size');
+  const buttonsAdd = document.querySelectorAll('.btn-add');
+  buttons.forEach((el) =>
+    el.addEventListener('click', (event) => {
+      const buttons2 = document.querySelectorAll('.btn-size');
+      buttons2.forEach((el) => el.classList.remove('active-button'));
+      const current = event.currentTarget;
+      current.classList.toggle('active-button');
+      if (current.value == '300 ml') {
+        newPrice = +basePrice + addPrice + 0.5;
+        newPrice = newPrice.toFixed(2);
+      } else if (current.value == '400 ml') {
+        newPrice = +basePrice + addPrice + 1.0;
+        newPrice = newPrice.toFixed(2);
+      } else {
+        newPrice = +basePrice;
+        newPrice = newPrice.toFixed(2);
+      }
+      price.innerHTML = `$${newPrice}`;
+    })
+  );
+  buttonsAdd.forEach((el) =>
+    el.addEventListener('click', (event) => {
+      const currentAdd = event.currentTarget;
+      currentAdd.classList.toggle('active-button');
+      if (currentAdd.classList.contains('active-button')) {
+        addPrice += 0.5;
+        newPrice = +newPrice + 0.5;
+        newPrice = newPrice.toFixed(2);
+      } else {
+        addPrice -= 0.5;
+        newPrice = +newPrice - 0.5;
+        newPrice = newPrice.toFixed(2);
+      }
+      price.innerHTML = `$${newPrice}`;
+    })
+  );
+  closeModal();
+};
 
+const closeModal = () => {
+  const close = document.querySelector('.close-button');
+  close.addEventListener('click', () => {
+    deleteModal();
+  });
+};

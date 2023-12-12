@@ -22,7 +22,7 @@ const generateProductCards = (data) => {
       </span>
       <h3 class="product-wrapper__title">${el.name}</h3>
       <p class="product-wrapper__text">${el.description}</p>
-      <p class="product-wrapper__price">${el.price}</p>
+      <p class="product-wrapper__price">$${el.price}</p>
     `;
     wrapper.append(product);
   });
