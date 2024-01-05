@@ -167,6 +167,10 @@ input[type='radio']:checked + label .tabs-wrapper {
   display: none;
 }
 
+.hidden {
+  display: none;
+} 
+
 @media (max-width: 1300px) {
   .product-list {
     gap: 1%;
@@ -178,7 +182,7 @@ input[type='radio']:checked + label .tabs-wrapper {
     max-width: 90%;
   }
 
-  .product-list .product-wrapper:nth-last-child(-n + 4) {
+  .hidden-class:nth-last-child(-n + 4) {
     display: none;
   }
 
