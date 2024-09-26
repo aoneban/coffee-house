@@ -13,9 +13,24 @@
       rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="../index.css">
-    <script src="./script.js" defer></script>
+    <script src="./index.js"></script>
+    <script src="./scripts/script.js" type="module" defer></script>
+    <script src="./scripts/burger.js" defer></script>
+    <script src="./scripts/video.js" defer></script>
   </head>
   <body>
+    <div id="mySidenav" class="sidenav">
+      <div class="burger-screen">
+        <a href="#favorites" onclick="changeBurgerToLink(this)">Favorite coffee</a>
+        <a href="#about" onclick="changeBurgerToLink(this)">About</a>
+        <a href="#mobile" onclick="changeBurgerToLink(this)">Mobile app</a>
+        <a href="#contact" onclick="changeBurgerToLink(this)">Contact us</a>
+        <a href="../menu/index.html" class="burger-menu">
+          Menu
+          <img src="../assets/images/coffee-burger-cup.png" alt="coffee-cup" class="coffee-img-burger">
+        </a>
+      </div>
+    </div>
     <header>
       <nav>
         <ul class="nav">
@@ -28,7 +43,7 @@
           <li class="nav__item item_5"><a href="#mobile" class="link-hover">Mobile app</a></li>
           <li class="nav__item item_6"><a href="#contact" class="link-hover">Contact us</a></li>
           <li class="nav__item item_7">
-            <span class="burger-wrapper" onclick="myFunction(this)">
+            <span class="burger-wrapper" onclick="changeBurger(this)">
               <span class="burger-top"></span>
               <span class="burger-bottom"></span>
             </span>
@@ -44,7 +59,11 @@
       </nav>
     </header>
     <div class="enjoy">
-      <img src="../assets/images/main.png" alt="coffee" class="presentation">
+      <div class="video-container">
+        <video controls loop autoplay muted id="myVideo">
+          <source src="../assets/videos/video.mp4" type="video/mp4">
+        </video>
+      </div>
         <div class="text-block">
           <h1 class="text-block__title"><i>Enjoy</i> premium coffee at our charming cafe</h1>
           <p class="text-block__text">With its inviting atmosphere and delicious coffee options, 
@@ -59,16 +78,13 @@
     </div>
     <div id="favorites" class="favorites">
       <h2>Choose your <i>favorite</i> coffee</h2>
-      <img src="../assets/images/coffee-slider-1.png" alt="coffee" class="coffee-slider">
-      <h4>S’mores Frappuccino</h4>
-      <p class="favorites__text">This new drink takes an espresso and mixes it with brown sugar
-      and cinnamon before being topped with oat milk.
-      </p>
-      <p class="favorites__price">$5.50</p>
+      <div class="slider">
+        <div class="slider-line"></div>
+      </div>
       <div class="borders">
-        <div class="border borders__one"></div>
-        <div class="border borders__two"></div>
-        <div class="border borders__three"></div>
+        <div class="border borders__one"><span class="borders__one-in"></span></div>
+        <div class="border borders__one"><span class="borders__one-in"></span></div>
+        <div class="border borders__one"><span class="borders__one-in"></span></div>
       </div>
       <div class="arrows">
         <button class="arrow arrow-left">

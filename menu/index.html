@@ -14,9 +14,24 @@
     >
     <link rel="stylesheet" href="./style.css" >
     <link rel="stylesheet" href="../index.css" >
-    <script src="./script.js" defer></script>
+    <script src="./index.js" type="module" defer></script>
+    <script src="./scripts/menu.js" type="module" defer></script>
+    <script src="./scripts/burger.js" defer></script>
+    <script src="./scripts/modal.js" type="module" defer></script>
   </head>
   <body>
+    <div id="mySidenav" class="sidenav">
+      <div class="burger-screen">
+        <a href="../main/#favorites" onclick="changeBurgerToLink(this)">Favorite coffee</a>
+        <a href="../main/#about" onclick="changeBurgerToLink(this)">About</a>
+        <a href="../main/#mobile" onclick="changeBurgerToLink(this)">Mobile app</a>
+        <a href="#contact" onclick="changeBurgerToLink(this)">Contact us</a>
+        <a href="./index.html" class="burger-menu">
+          Menu
+          <img src="../assets/images/coffee-burger-cup.png" alt="coffee-cup" class="coffee-img-burger">
+        </a>
+      </div>
+    </div>
     <header>
       <nav>
         <ul class="nav">
@@ -29,7 +44,7 @@
           <li class="nav__item item_5"><a href="../main/#mobile" class="link-hover">Mobile app</a></li>
           <li class="nav__item item_6"><a href="#contact" class="link-hover">Contact us</a></li>
           <li class="nav__item item_7">
-            <span class="burger-wrapper" onclick="myFunction(this)">
+            <span class="burger-wrapper" onclick="changeBurger(this)">
               <span class="burger-top"></span>
               <span class="burger-bottom"></span>
             </span>
@@ -49,94 +64,29 @@
         Behind each of our cups hides an <i>amazing surprise</i>
       </h1>
       <div class="product-tabs">
-        <input type="radio" id="option1" name="options" value="1" checked >
-        <label for="option1" class="label-with-image">
+        <input type="radio" id="coffee" name="options" value="coffee" checked >
+        <label for="coffee" class="label-with-image">
           <span class="tabs-wrapper">
             <img src="../assets/images/coffee-tab.png" alt="coffee-tab" class="tab-img" >
           </span>
           Coffee
         </label>
-        <input type="radio" id="option2" name="options" value="2" >
-        <label for="option2" class="label-with-image">
+        <input type="radio" id="tea" name="options" value="tea" >
+        <label for="tea" class="label-with-image">
           <span class="tabs-wrapper">
             <img src="../assets/images/tea-tab.png" alt="tea-tab" class="tab-img" >
           </span>
           Tea
         </label>
-        <input type="radio" id="option3" name="options" value="3" >
-        <label for="option3" class="label-with-image">
+        <input type="radio" id="dessert" name="options" value="dessert" >
+        <label for="dessert" class="label-with-image">
           <span class="tabs-wrapper">
             <img src="../assets/images/dessert-tab.png" alt="dessert-tab" class="tab-img">
           </span>
           Dessert
         </label>
       </div>
-      <div class="product-list">
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/irish.png" alt="Irish coffee" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Irish coffee</h3>
-          <p class="product-wrapper__text">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
-          <p class="product-wrapper__price">$7.00</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/kahlua.png" alt="Kahlua coffee" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Kahlua coffee</h3>
-          <p class="product-wrapper__text">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
-          <p class="product-wrapper__price">$7.00</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/honey.png" alt="Honey raf" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Honey raf</h3>
-          <p class="product-wrapper__text">Espresso with frothed milk, cream and aromatic honey</p>
-          <p class="product-wrapper__price">$5.50</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/cappuccino.png" alt="Ice cappuccino" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Ice cappuccino</h3>
-          <p class="product-wrapper__text">Cappuccino with soft thick foam in summer version with ice</p>
-          <p class="product-wrapper__price">$5.00</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/espresso.png" alt="Espresso" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Espresso</h3>
-          <p class="product-wrapper__text">Classic black coffee</p>
-          <p class="product-wrapper__price">$4.50</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/latte.png" alt="Latte" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Latte</h3>
-          <p class="product-wrapper__text">Espresso coffee with the addition of steamed milk and dense milk foam</p>
-          <p class="product-wrapper__price">$5.50</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/macchiato.png" alt="Latte macchiato" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Latte macchiato</h3>
-          <p class="product-wrapper__text">Espresso with frothed milk and chocolate</p>
-          <p class="product-wrapper__price">$5.50</p>
-        </div>
-        <div class="product-wrapper">
-          <span class="product-wrapper__image">
-              <img src="../assets/images/cognac.png" alt="Coffee with cognac" class="product-wrapper__img">
-          </span>
-          <h3 class="product-wrapper__title">Coffee with cognac</h3>
-          <p class="product-wrapper__text">Fragrant black coffee with cognac and whipped cream</p>
-          <p class="product-wrapper__price">$6.50</p>
-        </div>
-      </div>
+      <div class="product-list"></div>
       <div class="reload-product">
         <svg xmlns="http://www.w3.org/2000/svg" class="reload" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
