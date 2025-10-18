@@ -1,4 +1,6 @@
-import { dataSlider } from '../../static/dataSlider.js';
+import { dataSlider } from '../static/dataSlider.js';
+
+/** start slider */
 
 const wrapperSlider = document.querySelector('.slider-line');
 const arrowRight = document.querySelector('.arrow-right');
@@ -121,3 +123,57 @@ dataSlider.forEach((element, ind) => {
   arrowRight.addEventListener('click', sliderMoveToLeft);
   arrowLeft.addEventListener('click', sliderMoveToRight);
 })();
+
+
+//** start slider *//
+
+//** finish burger *//
+
+function changeBurger(item) {
+    const slider = document.getElementById('mySidenav');
+    slider.style.display = 'block';
+    item.classList.toggle('change');
+    slider.classList.toggle('slide-over');
+    document.body.classList.toggle('hidden-screen');
+  }
+  
+  function changeBurgerToLink(item) {
+    const element = document.querySelector('.burger-wrapper');
+    if (element.classList.contains('change')) {
+      element.classList.remove('change');
+    } 
+    changeBurger(item)
+  }
+  
+  const closeBurger = () => {
+    const windowInnerWidth = window.innerWidth;
+    const wrapper = document.querySelector('.burger-wrapper');
+    const slider = document.getElementById('mySidenav');
+    if (windowInnerWidth > 768) {
+      slider.classList.remove('slide-over');
+      wrapper.classList.remove('change');
+      document.body.classList.remove('hidden-screen');
+    }
+  }
+  
+  window.addEventListener('resize', closeBurger);
+
+  //** finish burger *//
+
+  //** start video *//
+
+
+  const video = document.getElementById('myVideo');
+  
+  video.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (video.paused) {
+      video.play();
+    } 
+  });
+  
+  video.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+  });
+
+   //** finish video *//
