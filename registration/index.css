@@ -1,0 +1,98 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 300;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  background: none;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: none;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.first {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.first {
+  margin-bottom: 30px;
+}
+
+.one {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 15px;
+}
+
+.two {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+
+.three {
+    width: 250px;
+}
+
+.pay-method {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.register {
+  margin-bottom: 60px;
+}
+
+.btn-reg {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    align-items: center;
+    margin: 40px auto;
+}

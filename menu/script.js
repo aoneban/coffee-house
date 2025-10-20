@@ -169,10 +169,9 @@ function modalWindowGenerator(event) {
       <p class="empty"><img src="../assets/images/info-empty.png" alt="img-empty" class="img-empty">&nbsp;&nbsp;&nbsp;&nbsp;The cost is not final. Download our mobile app to see the final price and place your order.
            Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
       </p>
-      <button type="button" class="close-button">Close</button>
+      <button type="button" class="close-button">Add to cart</button>
   </div>
   `;
-  console.log(result);
 
   modal.append(modalWrapper);
   document.body.append(modal);
