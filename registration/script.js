@@ -43,6 +43,7 @@ const button = document.getElementById('reg');
 const loginInput = document.getElementById('register-login');
 const passwordInput = document.getElementById('register-password');
 const password2Input = document.getElementById('register-password2');
+const houseInput = document.getElementById('register-number');
 
 const citySelect = document.getElementById('register-city');
 const streetSelect = document.getElementById('register-street');
@@ -84,15 +85,39 @@ form.addEventListener('input', () => {
   button.disabled = !valid;
 });
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
   console.log('✅ Send data:', data);
+  data.houseNumber = Number(data.houseNumber);
 
-  showToast('🎉 Registration was successful!', 'success');
+  try {
+      const response = await fetch(
+        "http://coffee-shop-be.eu-central-1.elasticbeanstalk.com/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "accept": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Ошибка: " + response.status);
+      }
+
+      const result = await response.json();
+      console.log("✅ Успешная регистрация:", result);
+      showToast('🎉 Registration was successful!', 'success');
+    } catch (err) {
+      console.error("❌ Ошибка при отправке:", err);
+      alert("Ошибка при регистрации");
+    }
 
   form.reset();
   button.disabled = true;
