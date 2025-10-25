@@ -26,6 +26,31 @@ input {
   border: 1px solid #ccc;
 }
 
+#register-city,
+#register-street {
+  width: 100%;
+  padding: 0.35rem;
+  background: none;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+#register-city:focus,
+#register-street:focus {
+  cursor: pointer;
+  border-color: #ccc;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 102, 204, 0.5);
+}
+
+#register-city option,
+#register-street option {
+  padding: 6px;
+  font-size: 14px;
+}
+
 button {
   width: 100%;
   margin-top: 1.5rem;
@@ -95,4 +120,75 @@ p {
     width: 20%;
     align-items: center;
     margin: 40px auto;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: 1px solid #aaa;
+  opacity: 0.7;
+}
+/* Ошибки */
+.one input.error {
+  border-color: #e74c3c;
+  background-color: #ffecec;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Неактивная кнопка */
+.btn-reg:disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+/* Toast container */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+/* Toast сообщение */
+.toast {
+  min-width: 220px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Варианты toast */
+.toast-success {
+  background-color: #4caf50;
+}
+
+.toast-error {
+  background-color: #e74c3c;
+}
+
+.toast-info {
+  background-color: #3498db;
 }
