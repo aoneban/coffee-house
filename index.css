@@ -391,7 +391,7 @@ footer {
     background-color: #e1d4c9;
   }
 
-  .close-button:hover {
+  .cart-button:hover {
     cursor: pointer;
     background-color: #665f55;
     color: #e1d4c9;
@@ -576,7 +576,7 @@ footer {
   margin-bottom: 28px;
 }
 
-.close-button {
+.cart-button {
   width: 100%;
   padding: 10px 78px;
   border-radius: 100px;

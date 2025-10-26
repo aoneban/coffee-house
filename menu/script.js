@@ -1,6 +1,7 @@
 import { data } from '../static/data.js';
 
 //////   start switching product categories /////////
+quantityShow();
 
 const generateProductCards = (data) => {
   const local = localStorage.getItem('accessToken');
@@ -199,11 +200,14 @@ function modalWindowGenerator(event) {
       <p class="empty"><img src="../assets/images/info-empty.png" alt="img-empty" class="img-empty">&nbsp;&nbsp;&nbsp;&nbsp;The cost is not final. Download our mobile app to see the final price and place your order.
            Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
       </p>
-      <button type="button" class="close-button">Add to cart</button>
+      <button type="button" class="cart-button">Add to cart</button>
   </div>
   `;
   const priceEl = modalWrapper.querySelector('.total-price');
   priceEl.textContent = `$${result[0].price}`;
+
+  const cartButton = modalWrapper.querySelector('.cart-button');
+  cartButton.addEventListener('click', () => addToCart(result[0].id, result[0].price));
 
   if (local !== null) {
     priceEl.classList.add('old-price');
@@ -229,7 +233,7 @@ const deleteWrap = (event) => {
 };
 
 const closeModal = () => {
-  const close = document.querySelector('.close-button');
+  const close = document.querySelector('.cart-button');
   close.addEventListener('click', () => {
     deleteModal();
   });
@@ -240,7 +244,6 @@ const calculationOptions = () => {
   const price2 = document.querySelector('.discount-price');
   let basePrice = Number(price.innerText.replace('$', ''));
   let newPrice = Number(price.innerText.replace('$', ''));
-  let disPrice = Number(price2.innerText.replace('$', ''));
   let addPrice = 0;
   const buttons = document.querySelectorAll('.btn-size');
   const buttonsAdd = document.querySelectorAll('.btn-add');
@@ -272,12 +275,10 @@ const calculationOptions = () => {
         addPrice += 0.5;
         newPrice = +newPrice + 0.5;
         newPrice = newPrice.toFixed(2);
-        disPrice = (+newPrice * 0.95).toFixed(2);
       } else {
         addPrice -= 0.5;
         newPrice = +newPrice - 0.5;
         newPrice = newPrice.toFixed(2);
-        disPrice = (+newPrice * 0.95).toFixed(2);
       }
       price.innerHTML = `$${newPrice}`;
       price2.innerHTML = `$${(+newPrice * 0.95).toFixed(2)}`;
@@ -287,3 +288,29 @@ const calculationOptions = () => {
 };
 
 /** finish modal window */
+
+  function addToCart(productId, price, quantity = 1) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existing = cart.find(item => item.id === productId);
+
+  if (existing) {
+    existing.quantity += quantity;
+  } else {
+    cart.push({ id: productId, quantity, price });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  quantityShow();
+}
+
+function quantityShow() {
+  let totalProductsInCart = 0
+  const counter = document.querySelector('.quantity')
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  for(let count of cart) {
+    totalProductsInCart += count.quantity;
+  }
+  console.log(totalProductsInCart)
+  counter.textContent = totalProductsInCart;
+}

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../main/style.css" />
     <link rel="stylesheet" href="../index.css" />
     <link rel="stylesheet" href="./index.css" />
-    <script src="./script.js" defer></script>
+    <script src="./script.js" type="module"></script>
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
@@ -68,6 +68,12 @@
             </span>
           </li>
           <li class="nav__item item_8">
+            <a href="../cart/index.html" id="cart" class="link-hover">
+              <img src="../assets/images/shopping-bag.png" alt="cart" />
+            </a>
+            <span class="quantity"></span>
+          </li>
+          <li class="nav__item item_8">
             <div class="menu-wrap">
               <a href="../menu/index.html">Menu </a>
               <img
@@ -77,17 +83,15 @@
               />
             </div>
           </li>
-          <li class="nav__item item_8">
-            <a href="../login/index.html" class="link-hover link-signUp"
-              >Sign in</a
-            >
-          </li>
         </ul>
       </nav>
     </header>
     <main>
       <div class="cart-container">
         <h2>Cart</h2>
+        <div class="cart-wrapper">
+
+        </div>
       </div>
     </main>
     <footer>
