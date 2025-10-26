@@ -13,7 +13,7 @@ function getImage(idx) {
 async function fetchProducts() {
   try {
     const response = await fetch(
-      'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/auth/favorites',
+      'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/products/favorites',
       {
         method: 'GET',
         headers: {
