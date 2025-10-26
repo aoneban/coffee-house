@@ -3,6 +3,7 @@ import { data } from '../static/data.js';
 //////   start switching product categories /////////
 
 const generateProductCards = (data) => {
+  const local = localStorage.getItem('accessToken');
   const wrapper = document.querySelector('.product-list');
   data.forEach((el) => {
     const product = document.createElement('div');
@@ -34,10 +35,20 @@ const generateProductCards = (data) => {
     description.textContent = el.description;
 
     const price = document.createElement('p');
-    price.classList.add('product-wrapper__price');
     price.textContent = `$${el.price}`;
 
-    product.append(wrapperProduct, title, description, price)
+    const discountPrice = document.createElement('p');
+    discountPrice.classList.add('product-wrapper__price');
+    discountPrice.textContent = `$${(+el.price * 0.95).toFixed(2)}`;
+
+    if (local !== null) {
+      price.classList.add('old__price');
+      product.append(wrapperProduct, title, description, price, discountPrice);
+    } else {
+      price.classList.add('product-wrapper__price');
+      product.append(wrapperProduct, title, description, price);
+    }
+
     wrapper.append(product);
   });
 };
@@ -82,7 +93,7 @@ const reloadElementToPage = () => {
     s.forEach((el) => el.classList.remove('hidden-class'));
     reload.style.display = 'none';
   });
-}
+};
 
 reloadElementToPage();
 //////   end switching product categories /////////
@@ -90,39 +101,39 @@ reloadElementToPage();
 //////   start burger menu /////////
 
 function changeBurger(item) {
-    const slider = document.getElementById('mySidenav');
-    slider.style.display = 'block';
-    item.classList.toggle('change');
-    slider.classList.toggle('slide-over');
-    document.body.classList.toggle('hidden-screen');
-  }
-  
-  function changeBurgerToLink(item) {
-    const element = document.querySelector('.burger-wrapper');
-    if (element.classList.contains('change')) {
-      element.classList.remove('change');
-    }
-    changeBurger(item);
-  }
-  
-  const closeBurger = () => {
-    const windowInnerWidth = window.innerWidth;
-    const wrapper = document.querySelector('.burger-wrapper');
-    const slider = document.getElementById('mySidenav');
-    if (windowInnerWidth > 768) {
-      slider.classList.remove('slide-over');
-      wrapper.classList.remove('change');
-      document.body.classList.remove('hidden-screen');
-    }
-  };
-  
-  window.addEventListener('resize', closeBurger);
-  
-  //////  finish burger menu /////////
+  const slider = document.getElementById('mySidenav');
+  slider.style.display = 'block';
+  item.classList.toggle('change');
+  slider.classList.toggle('slide-over');
+  document.body.classList.toggle('hidden-screen');
+}
 
-  /** start modal window */
+function changeBurgerToLink(item) {
+  const element = document.querySelector('.burger-wrapper');
+  if (element.classList.contains('change')) {
+    element.classList.remove('change');
+  }
+  changeBurger(item);
+}
 
-  const modal = document.createElement('div');
+const closeBurger = () => {
+  const windowInnerWidth = window.innerWidth;
+  const wrapper = document.querySelector('.burger-wrapper');
+  const slider = document.getElementById('mySidenav');
+  if (windowInnerWidth > 768) {
+    slider.classList.remove('slide-over');
+    wrapper.classList.remove('change');
+    document.body.classList.remove('hidden-screen');
+  }
+};
+
+window.addEventListener('resize', closeBurger);
+
+//////  finish burger menu /////////
+
+/** start modal window */
+
+const modal = document.createElement('div');
 
 function modalWindowGenerator(event) {
   setTimeout(calculationOptions, 0);
@@ -225,7 +236,7 @@ const calculationOptions = () => {
       buttons2.forEach((el) => el.classList.remove('active-button'));
       const current = event.currentTarget;
       current.classList.toggle('active-button');
-       if (current.value == '300 ml' || current.value == '100 g') {
+      if (current.value == '300 ml' || current.value == '100 g') {
         newPrice = +basePrice + addPrice + 0.5;
         newPrice = newPrice.toFixed(2);
       } else if (current.value == '400 ml' || current.value == '200 g') {
@@ -256,6 +267,5 @@ const calculationOptions = () => {
   );
   closeModal();
 };
-
 
 /** finish modal window */
