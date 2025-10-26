@@ -1,5 +1,3 @@
-const form = document.getElementById('register-form');
-
 const streetsByCity = {
   london: [
     'Oxford Street',
@@ -38,6 +36,7 @@ const streetsByCity = {
     'Calle de Hortaleza',
   ],
 };
+const form = document.getElementById('register-form');
 const button = document.getElementById('reg');
 
 const loginInput = document.getElementById('register-login');
@@ -57,7 +56,7 @@ form.addEventListener('input', () => {
 
   let valid = true;
 
-  const loginRegex = /^[A-Za-z][A-Za-z]{2,}$/;
+  const loginRegex = /^[A-Za-z][A-Za-z0-9]{2,}$/;
   if (!loginRegex.test(login)) {
     showError(
       loginInput,
@@ -108,15 +107,17 @@ form.addEventListener('submit', async (e) => {
       );
 
       if (!response.ok) {
-        throw new Error("Ошибка: " + response.status);
+        throw new Error("Error: " + response.status);
       }
 
       const result = await response.json();
-      console.log("✅ Успешная регистрация:", result);
+      console.log("✅ Successful registration", result);
+      localStorage.setItem("accessToken", result.data.access_token);
+
       showToast('🎉 Registration was successful!', 'success');
     } catch (err) {
-      console.error("❌ Ошибка при отправке:", err);
-      alert("Ошибка при регистрации");
+      console.error("❌ Send error:", err);
+      alert("Error during registration");
     }
 
   form.reset();
