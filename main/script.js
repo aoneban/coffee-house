@@ -13,7 +13,7 @@ function getImage(idx) {
 async function fetchProducts() {
   try {
     const response = await fetch(
-      'http://coffee-shop-be.eu-central-1.elasticbeanstalk.com/products/favorites',
+      'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/auth/favorites',
       {
         method: 'GET',
         headers: {

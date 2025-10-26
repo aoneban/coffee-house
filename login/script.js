@@ -48,7 +48,7 @@ form.addEventListener('submit', async (e) => {
 
   try {
     const response = await fetch(
-      'http://coffee-shop-be.eu-central-1.elasticbeanstalk.com/auth/login',
+      'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/auth/login',
       {
         method: 'POST',
         headers: {
