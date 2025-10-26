@@ -219,6 +219,7 @@
   text-decoration: line-through;
   position: relative;
   bottom: 40px;
+  color: #888;
 }
 
 .borders {

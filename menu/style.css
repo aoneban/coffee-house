@@ -165,8 +165,22 @@ input[type='radio']:checked + label .tabs-wrapper {
 .old__price {
   text-decoration: line-through;
   position: absolute;
-  bottom: 26px;
-  right: 166px;
+  color: #888;
+  font-weight: 600;
+  font-size: 24px;
+  bottom: 22px;
+  right: 144px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.prices {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
 }
 
 .reload-products,

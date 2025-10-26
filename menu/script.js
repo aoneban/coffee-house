@@ -136,6 +136,7 @@ window.addEventListener('resize', closeBurger);
 const modal = document.createElement('div');
 
 function modalWindowGenerator(event) {
+  const local = localStorage.getItem('accessToken');
   setTimeout(calculationOptions, 0);
   document.body.style.position = 'fixed';
   const currentClickProduct = event.currentTarget;
@@ -190,7 +191,10 @@ function modalWindowGenerator(event) {
       </div>
       <div class="modal-price-wrap">
           <p>Total:</p>
-          <p class="total-price">$${result[0].price}</p>
+          <div class="prices">
+            <p class="total-price"></p>
+            <p class="discount-price"></p>
+          </div>  
       </div>
       <p class="empty"><img src="../assets/images/info-empty.png" alt="img-empty" class="img-empty">&nbsp;&nbsp;&nbsp;&nbsp;The cost is not final. Download our mobile app to see the final price and place your order.
            Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
@@ -198,6 +202,14 @@ function modalWindowGenerator(event) {
       <button type="button" class="close-button">Add to cart</button>
   </div>
   `;
+  const priceEl = modalWrapper.querySelector('.total-price');
+  priceEl.textContent = `$${result[0].price}`;
+
+  if (local !== null) {
+    priceEl.classList.add('old-price');
+    const priceDiscount = modalWrapper.querySelector('.discount-price');
+    priceDiscount.textContent = `$${(+result[0].price * 0.95).toFixed(2)}`;
+  }
 
   modal.append(modalWrapper);
   document.body.append(modal);
@@ -225,8 +237,10 @@ const closeModal = () => {
 
 const calculationOptions = () => {
   const price = document.querySelector('.total-price');
+  const price2 = document.querySelector('.discount-price');
   let basePrice = Number(price.innerText.replace('$', ''));
   let newPrice = Number(price.innerText.replace('$', ''));
+  let disPrice = Number(price2.innerText.replace('$', ''));
   let addPrice = 0;
   const buttons = document.querySelectorAll('.btn-size');
   const buttonsAdd = document.querySelectorAll('.btn-add');
@@ -247,6 +261,7 @@ const calculationOptions = () => {
         newPrice = newPrice.toFixed(2);
       }
       price.innerHTML = `$${newPrice}`;
+      price2.innerHTML = `$${(+newPrice * 0.95).toFixed(2)}`;
     })
   );
   buttonsAdd.forEach((el) =>
@@ -257,12 +272,15 @@ const calculationOptions = () => {
         addPrice += 0.5;
         newPrice = +newPrice + 0.5;
         newPrice = newPrice.toFixed(2);
+        disPrice = (+newPrice * 0.95).toFixed(2);
       } else {
         addPrice -= 0.5;
         newPrice = +newPrice - 0.5;
         newPrice = newPrice.toFixed(2);
+        disPrice = (+newPrice * 0.95).toFixed(2);
       }
       price.innerHTML = `$${newPrice}`;
+      price2.innerHTML = `$${(+newPrice * 0.95).toFixed(2)}`;
     })
   );
   closeModal();
