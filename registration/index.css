@@ -19,6 +19,7 @@ label {
 
 input {
   width: 100%;
+  outline: none;
   padding: 0.5rem;
   background: none;
   margin-top: 0.25rem;

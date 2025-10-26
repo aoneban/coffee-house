@@ -40,25 +40,49 @@ const arrowLeft = document.querySelector('.arrow-left');
 const slider = document.querySelector('.slider');
 
 function renderProducts(products) {
+  const local = localStorage.getItem('accessToken');
+  console.log(local);
   products.data.forEach((element, ind) => {
     const slider = document.createElement('div');
     slider.classList.add('slider-base');
     slider.classList.add(`base-${ind}`);
-    slider.innerHTML = `
-          <img src="${getImage(element.id)}" alt="coffee" class="coffee-slider">
-          <h4>${element.name}</h4>
-          <p class="favorites__text">${element.description}</p>
-          <p class="favorites__price">${element.price}</p>
-  `;
+
+    const img = document.createElement('img');
+    img.src = getImage(element.id);
+    img.setAttribute('alt', 'coffee');
+    img.classList.add('coffee-slider');
+
+    const title = document.createElement('h4');
+    title.textContent = element.name;
+
+    const description = document.createElement('p');
+    description.classList.add('favorites__text');
+    description.textContent = element.description;
+
+    const discountPrice = document.createElement('p');
+    discountPrice.classList.add('favorites__price');
+    discountPrice.textContent = `$${(+element.price * 0.95).toFixed(2)}`;
+
+    const price = document.createElement('p');
+    price.textContent = `$${element.price}`;
+
+    if (local !== null) {
+      price.classList.add('old__price');
+      slider.append(img, title, description, discountPrice, price);
+    } else {
+      price.classList.add('favorites__price');
+      slider.append(img, title, description, price);
+    }
+
     wrapperSlider.append(slider);
   });
 }
 
 async function init() {
   try {
-    const products = await fetchProducts(); 
+    const products = await fetchProducts();
     renderProducts(products);
-    sliders(); 
+    sliders();
   } catch (err) {
     console.error('Error getting data:', err);
   }

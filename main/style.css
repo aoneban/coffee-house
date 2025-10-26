@@ -208,6 +208,14 @@
   color: #403f3d;
   margin: 18px 0 38px 0;
 }
+
+.old__price {
+  text-decoration: line-through;
+  position: relative;
+  bottom: 40px;
+
+}
+
 .borders {
   display: flex;
   flex-direction: row;
@@ -829,5 +837,4 @@ video {
   .base-2 {
     margin: 0 5px 0 8em;
   }
-
 }
