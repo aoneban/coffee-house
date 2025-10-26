@@ -15,14 +15,29 @@ const generateProductCards = (data) => {
     } else if (data.length <= 4) {
       document.querySelector('.reload-product').style.display = 'none';
     }
-    product.innerHTML = `
-      <span class="product-wrapper__image">
-          <img src="${el.image}" alt="${el.image}" class="product-wrapper__img">
-      </span>
-      <h3 class="product-wrapper__title">${el.name}</h3>
-      <p class="product-wrapper__text">${el.description}</p>
-      <p class="product-wrapper__price">$${el.price}</p>
-    `;
+    const wrapperProduct = document.createElement('span');
+    wrapperProduct.classList.add('product-wrapper__image');
+
+    const img = document.createElement('img');
+    img.src = el.image;
+    img.setAttribute('alt', el.image);
+    img.classList.add('product-wrapper__img');
+
+    wrapperProduct.append(img);
+
+    const title = document.createElement('h3');
+    title.classList.add('product-wrapper__title');
+    title.textContent = el.name;
+
+    const description = document.createElement('p');
+    description.classList.add('product-wrapper__text');
+    description.textContent = el.description;
+
+    const price = document.createElement('p');
+    price.classList.add('product-wrapper__price');
+    price.textContent = `$${el.price}`;
+
+    product.append(wrapperProduct, title, description, price)
     wrapper.append(product);
   });
 };

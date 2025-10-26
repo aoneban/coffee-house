@@ -30,6 +30,12 @@
   right: 50%;
 }
 
+.link-signUp {
+  position: relative;
+  padding: 0 0 6px 0;
+  bottom: 3px;
+}
+
 /* enjoy start */
 
 .enjoy {
