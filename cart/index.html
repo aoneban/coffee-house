@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Cart</title>
     <link
       rel="shortcut icon"
       type="image/png"
@@ -78,109 +78,18 @@
             </div>
           </li>
           <li class="nav__item item_8">
-            <a href="../login/index.html" class="link-hover link-signUp">Sign in</a>
+            <a href="../login/index.html" class="link-hover link-signUp"
+              >Sign in</a
+            >
           </li>
         </ul>
       </nav>
     </header>
-    <div class="form-container">
-      <h2 class="register">Registration</h2>
-      <form id="register-form">
-        <div class="first">
-          <div class="one">
-            <label for="register-login">Login</label>
-            <input
-              type="text"
-              name="login"
-              id="register-login"
-              placeholder="Placeholder"
-              required
-            />
-            <small class="error-message"></small>
-          </div>
-
-          <div class="one">
-            <label for="register-password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="register-password"
-              placeholder="Placeholder"
-              required
-            />
-            <small class="error-message"></small>
-          </div>
-
-          <div class="one">
-            <label for="register-password2">Confirm password</label>
-            <input
-              type="password"
-              id="register-password2"
-              name="confirmPassword"
-              placeholder="Placeholder"
-              required
-            />
-            <small class="error-message"></small>
-          </div>
-        </div>
-
-        <div class="second">
-          <div class="one three">
-            <label for="register-city">City</label>
-            <select id="register-city" name="city" required>
-              <option value="" class="choose" disabled selected>
-                Choose city
-              </option>
-              <option value="madrid">Madrid</option>
-              <option value="london">London</option>
-              <option value="poznan">Poznań</option>
-            </select>
-
-            <small class="error-message"></small>
-          </div>
-
-          <div class="one three">
-            <label for="register-street">Street</label>
-            <select id="register-street" name="street" required>
-              <option value="" disabled selected>First select a city</option>
-            </select>
-            <small class="error-message"></small>
-          </div>
-
-          <div class="one three">
-            <label for="register-number">House number</label>
-            <input
-              type="number"
-              id="reg-number"
-              name="houseNumber"
-              placeholder="Placeholder"
-              required
-            />
-            <small class="error-message"></small>
-          </div>
-
-          <div class="pay-wrapper three">
-            <p>Pay by</p>
-            <div class="pay-method">
-              <div class="two">
-                <input type="radio" name="paymentMethod" value="cash" checked />
-                <label>Cash</label>
-              </div>
-              <div class="two">
-                <input type="radio" name="paymentMethod" value="card" />
-                <label>Card</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" id="reg" class="btn-reg" disabled>
-          Registration
-        </button>
-      </form>
-      <div id="toast-container"></div>
-      <p>Already have an account? <a href="../login/index.html">Log in</a></p>
-    </div>
+    <main>
+      <div class="cart-container">
+        <h2>Cart</h2>
+      </div>
+    </main>
     <footer>
       <div id="contact" class="footer-wrapper">
         <div class="footer-wrapper__left">
