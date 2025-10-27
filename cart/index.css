@@ -17,7 +17,7 @@
 h2 {
   text-align: center;
   margin-bottom: 1rem;
-  color: #403F3D;
+  color: #403f3d;
   font-weight: 600;
   font-size: 60px;
 }
@@ -34,11 +34,11 @@ h2 {
 }
 
 .cart {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .content {
@@ -99,6 +99,15 @@ button:disabled {
 p {
   text-align: center;
   margin-top: 1rem;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-wrapper p {
+  margin-bottom: 30px;
 }
 
 .one input.error {

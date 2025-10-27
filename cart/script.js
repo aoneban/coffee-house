@@ -61,6 +61,16 @@ function generateProducts() {
     })
     const totalPriceWrapper = document.createElement('div');
     totalPriceWrapper.classList.add('login-wrapper')
+
+    const total = document.createElement('p');
+    total.style.marginLeft = '50px'
+    total.textContent = 'Total:'
+
+    const totalPrice = document.createElement('p');
+    totalPrice.textContent = '$15.25'
+
+    totalPriceWrapper.append(total, totalPrice);
+    wrapper.append(totalPriceWrapper)
 }
 
 generateProducts()
