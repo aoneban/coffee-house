@@ -22,6 +22,9 @@ function generateProducts() {
               cart.classList.add('cart')
               cart.setAttribute("data-id", item.unId);
 
+                const content = document.createElement('div');
+                content.classList.add('content')
+
                 const trashImg = document.createElement('img');
                 trashImg.src = '../assets/images/trash.png';
 
@@ -47,9 +50,11 @@ function generateProducts() {
                 const titleWrapper = document.createElement('div');
                 titleWrapper.classList.add('title-wrapper');
 
+                content.append(trashImg, img, titleWrapper)
+
                 titleWrapper.append(productName, additional)
                 
-                cart.append(trashImg, img, titleWrapper, price)
+                cart.append(content, price)
                 wrapper.append(cart)
             }
         }
