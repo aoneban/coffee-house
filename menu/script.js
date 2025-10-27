@@ -207,7 +207,7 @@ function modalWindowGenerator(event) {
   priceEl.textContent = `$${result[0].price}`;
 
   const cartButton = modalWrapper.querySelector('.cart-button');
-  cartButton.addEventListener('click', () => addToCart(result[0].id, result[0].price));
+  cartButton.addEventListener('click', () => addToCart(result[0].id));
 
   if (local !== null) {
     priceEl.classList.add('old-price');
@@ -240,8 +240,12 @@ const closeModal = () => {
 };
 
 const calculationOptions = () => {
+  const local = localStorage.getItem('accessToken');
+  if (local) {
+    var price2 = document.querySelector('.discount-price');
+  }
   const price = document.querySelector('.total-price');
-  const price2 = document.querySelector('.discount-price');
+
   let basePrice = Number(price.innerText.replace('$', ''));
   let newPrice = Number(price.innerText.replace('$', ''));
   let addPrice = 0;
@@ -289,28 +293,27 @@ const calculationOptions = () => {
 
 /** finish modal window */
 
-  function addToCart(productId, price, quantity = 1) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addToCart(productId, quantity = 1) {
+  const activeInputs = document.querySelectorAll('input.active-button');
+  const totalPrice = document.querySelector('.total-price').textContent;
+  const title = document.querySelector('.title-h3').textContent;
+  const uniqueId = Date.now();
+  const values = Array.from(activeInputs).map((input) => input.value);
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  const existing = cart.find(item => item.id === productId);
+  cart.push({ id: productId, values, quantity, totalPrice, title, unId: uniqueId});
 
-  if (existing) {
-    existing.quantity += quantity;
-  } else {
-    cart.push({ id: productId, quantity, price });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem('cart', JSON.stringify(cart));
   quantityShow();
 }
 
 function quantityShow() {
-  let totalProductsInCart = 0
-  const counter = document.querySelector('.quantity')
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  for(let count of cart) {
+  let totalProductsInCart = 0;
+  const counter = document.querySelector('.quantity');
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  for (let count of cart) {
     totalProductsInCart += count.quantity;
   }
-  console.log(totalProductsInCart)
+  console.log(totalProductsInCart);
   counter.textContent = totalProductsInCart;
 }

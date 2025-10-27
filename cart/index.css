@@ -22,6 +22,25 @@ h2 {
   font-size: 60px;
 }
 
+.cart-wrapper {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.cart-img {
+  width: 7%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cart {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+margin-top: 10px;
+}
+
 label {
   display: block;
   margin-top: 1rem;
