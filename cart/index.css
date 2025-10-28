@@ -108,6 +108,30 @@ p {
   max-width: 40%;
 }
 
+.discount-color {
+  color: #777;
+  text-decoration: line-through;
+}
+
+.total-discount_price {
+  position: absolute;
+  right: 13vw;
+  color: #777;
+  text-decoration: line-through;
+}
+
+.price-wrap {
+  display: flex;
+  gap: 25px;
+}
+
+.confirm {
+  display: flex;
+  justify-content: center;
+  max-width: 15%;
+  margin: 20px auto 120px auto;
+}
+
 .total-wrapper {
   display: flex;
   justify-content: space-between;

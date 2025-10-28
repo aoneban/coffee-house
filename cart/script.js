@@ -21,6 +21,9 @@ function generateProducts() {
         const content = document.createElement('div');
         content.classList.add('content');
 
+        const priceWrap = document.createElement('div');
+        priceWrap.classList.add('price-wrap');
+
         const trashImg = document.createElement('img');
         trashImg.src = '../assets/images/trash.png';
 
@@ -44,18 +47,25 @@ function generateProducts() {
         price.classList.add('price');
         price.textContent = item.totalPrice;
 
-        const discountPrice = document.createElement('p');
-        discountPrice.classList.add('discount-price');
-        discountPrice.textContent = discountFunction(item.totalPrice);
+        const newPrice = document.createElement('p');
+        newPrice.classList.add('new-price');
+        newPrice.textContent = discountFunction(item.totalPrice);
 
         const titleWrapper = document.createElement('div');
         titleWrapper.classList.add('title-wrapper');
 
         content.append(buttonTrash, img, titleWrapper);
 
+        if (local) {
+          priceWrap.append(price, newPrice);
+          price.classList.add('discount-color');
+        } else {
+          priceWrap.append(price);
+        }
+
         titleWrapper.append(productName, additional);
 
-        cart.append(content, price);
+        cart.append(content, priceWrap);
         wrapper.append(cart);
       }
     }
@@ -69,10 +79,52 @@ function generateProducts() {
 
   const totalPrice = document.createElement('p');
   totalPrice.classList.add('total-price');
-  totalPrice.textContent = '$15.25';
+  totalPrice.textContent = '$0';
 
-  totalPriceWrapper.append(total, totalPrice);
+  const totalDiscountPrice = document.createElement('p');
+  totalDiscountPrice.classList.add('total-discount');
+  totalDiscountPrice.textContent = '%';
+
+  if (local) {
+    totalPriceWrapper.append(total, totalPrice, totalDiscountPrice);
+  } else {
+    totalPriceWrapper.append(total, totalPrice);
+  }
+
   wrapper.append(totalPriceWrapper);
+
+  if (local) {
+    totalPrice.classList.add('total-discount_price');
+    const totalPriceWrapper = document.createElement('div');
+    totalPriceWrapper.classList.add('total-wrapper');
+
+    const totalPriceWrapper2 = document.createElement('div');
+    totalPriceWrapper2.classList.add('total-wrapper');
+
+    const addressQ = document.createElement('p');
+    addressQ.style.marginLeft = '50px';
+    addressQ.textContent = 'Address:';
+
+    const addressA = document.createElement('p');
+    addressA.classList.add('total-price');
+    addressA.textContent = 'Living in the city of ...';
+
+    const pay = document.createElement('p');
+    pay.style.marginLeft = '50px';
+    pay.textContent = 'Pay by:';
+
+    const forPay = document.createElement('p');
+    forPay.classList.add('total-price');
+    forPay.textContent = 'Card';
+
+    const confirmButton = document.createElement('button');
+    confirmButton.classList.add('confirm');
+    confirmButton.textContent = 'Confirm';
+
+    totalPriceWrapper.append(addressQ, addressA);
+    totalPriceWrapper2.append(pay, forPay);
+    wrapper.append(totalPriceWrapper, totalPriceWrapper2, confirmButton);
+  }
 
   generateIfNotToLogin(local, wrapper);
   totalPriceToPay();
@@ -101,12 +153,14 @@ function deleteOrder(event) {
 function totalPriceToPay() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const price = document.querySelector('.total-price');
+  const discount = document.querySelector('.total-discount');
 
   const totalQuantity = cart.reduce(
     (sum, item) => sum + Number(item.totalPrice.slice(1)),
     0
   );
   price.textContent = `$${totalQuantity.toFixed(2)}`;
+  discount.textContent = `$${(totalQuantity * 0.95).toFixed(2)}`;
 }
 
 function generateIfNotToLogin(local, wrapper) {
