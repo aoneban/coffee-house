@@ -7,6 +7,24 @@ function quantityShow() {
 }
 quantityShow();
 
+function getAddress() {
+  const userAddress = localStorage.getItem('userData');
+  const address = JSON.parse(userAddress);
+  const place = address.city;
+  const capitalizedPlace = place.charAt(0).toUpperCase() + place.slice(1);
+  const street = address.street;
+  const capitalizedStreet = street.charAt(0).toUpperCase() + street.slice(1);
+  const house = address.houseNumber;
+  return `${capitalizedPlace}, ${capitalizedStreet}, ${house}`;
+}
+
+function getPayment() {
+  const userAddress = localStorage.getItem('userData');
+  const address = JSON.parse(userAddress);
+  const payment = address.paymentMethod;
+  return payment;
+}
+
 function generateProducts() {
   const local = localStorage.getItem('accessToken');
   const wrapper = document.querySelector('.cart-wrapper');
@@ -107,7 +125,7 @@ function generateProducts() {
 
     const addressA = document.createElement('p');
     addressA.classList.add('total-price');
-    addressA.textContent = 'Living in the city of ...';
+    addressA.textContent = getAddress();
 
     const pay = document.createElement('p');
     pay.style.marginLeft = '50px';
@@ -115,7 +133,7 @@ function generateProducts() {
 
     const forPay = document.createElement('p');
     forPay.classList.add('total-price');
-    forPay.textContent = 'Card';
+    forPay.textContent = getPayment();
 
     const confirmButton = document.createElement('button');
     confirmButton.classList.add('confirm');

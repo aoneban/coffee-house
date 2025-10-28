@@ -65,6 +65,7 @@ form.addEventListener('submit', async (e) => {
 
     const result = await response.json();
     console.log('✅ Successful login', result);
+    localStorage.setItem('userData', JSON.stringify(result.data.user));
     localStorage.setItem('accessToken', result.data.access_token);
     setTimeout(() => {
       window.location.href = '../menu/index.html';
