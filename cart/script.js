@@ -1,17 +1,14 @@
 import { data } from '../static/data.js';
 
 function quantityShow() {
-  let totalProductsInCart = 0;
   const counter = document.querySelector('.quantity');
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  for (let count of cart) {
-    totalProductsInCart += count.quantity;
-  }
-  counter.textContent = totalProductsInCart;
+  counter.textContent = cart.length;
 }
 quantityShow();
 
 function generateProducts() {
+  const local = localStorage.getItem('accessToken');
   const wrapper = document.querySelector('.cart-wrapper');
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   data.forEach((element) => {
@@ -64,18 +61,20 @@ function generateProducts() {
     }
   });
   const totalPriceWrapper = document.createElement('div');
-  totalPriceWrapper.classList.add('login-wrapper');
+  totalPriceWrapper.classList.add('total-wrapper');
 
   const total = document.createElement('p');
   total.style.marginLeft = '50px';
   total.textContent = 'Total:';
 
   const totalPrice = document.createElement('p');
-  totalPrice.classList.add('total-price')
+  totalPrice.classList.add('total-price');
   totalPrice.textContent = '$15.25';
 
   totalPriceWrapper.append(total, totalPrice);
   wrapper.append(totalPriceWrapper);
+
+  generateIfNotToLogin(local, wrapper);
   totalPriceToPay();
 }
 
@@ -95,13 +94,7 @@ function deleteOrder(event) {
   );
   localStorage.setItem('cart', JSON.stringify(newCart));
   elementToDelete.remove();
-  updateCount();
-}
-
-function updateCount() {
-  const counter = document.querySelector('.quantity');
-  const newCount = Number(counter.textContent);
-  counter.textContent = newCount - 1;
+  quantityShow();
   totalPriceToPay();
 }
 
@@ -109,6 +102,31 @@ function totalPriceToPay() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const price = document.querySelector('.total-price');
 
-  const totalQuantity = cart.reduce((sum, item) => sum + Number(item.totalPrice.slice(1)), 0);
-  price.textContent = `$${totalQuantity.toFixed(2)}`
+  const totalQuantity = cart.reduce(
+    (sum, item) => sum + Number(item.totalPrice.slice(1)),
+    0
+  );
+  price.textContent = `$${totalQuantity.toFixed(2)}`;
+}
+
+function generateIfNotToLogin(local, wrapper) {
+  if (!local) {
+    const loginWrap = document.createElement('div');
+    loginWrap.classList.add('login-wrapper');
+
+    const signButton = document.createElement('button');
+    signButton.textContent = 'Sign in';
+    signButton.addEventListener('click', () => {
+      window.location.href = '../login/index.html';
+    });
+
+    const registerButton = document.createElement('button');
+    registerButton.textContent = 'Registration';
+    registerButton.addEventListener('click', () => {
+      window.location.href = '../registration/index.html';
+    });
+
+    loginWrap.append(signButton, registerButton);
+    wrapper.append(loginWrap);
+  }
 }
