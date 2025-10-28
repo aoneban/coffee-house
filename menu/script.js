@@ -314,6 +314,5 @@ function quantityShow() {
   for (let count of cart) {
     totalProductsInCart += count.quantity;
   }
-  console.log(totalProductsInCart);
   counter.textContent = totalProductsInCart;
 }

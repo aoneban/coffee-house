@@ -115,6 +115,11 @@ p {
   background-color: #ffecec;
 }
 
+.button-trash {
+  border: none;
+  width: auto;
+}
+
 .one {
   display: flex;
   flex-direction: column;
