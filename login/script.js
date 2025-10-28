@@ -44,8 +44,6 @@ form.addEventListener('submit', async (e) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  console.log('✅ Send data:', data);
-
   try {
     const response = await fetch(
       'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/auth/login',
@@ -64,7 +62,6 @@ form.addEventListener('submit', async (e) => {
     }
 
     const result = await response.json();
-    console.log('✅ Successful login', result);
     localStorage.setItem('userData', JSON.stringify(result.data.user));
     localStorage.setItem('accessToken', result.data.access_token);
     setTimeout(() => {

@@ -90,7 +90,6 @@ form.addEventListener('submit', async (e) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  console.log('✅ Send data:', data);
   data.houseNumber = Number(data.houseNumber);
 
   try {
@@ -111,7 +110,6 @@ form.addEventListener('submit', async (e) => {
       }
 
       const result = await response.json();
-      console.log("✅ Successful registration", result);
       localStorage.setItem("accessToken", result.data.access_token);
 
       showToast('🎉 Registration was successful!', 'success');

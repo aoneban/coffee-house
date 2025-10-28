@@ -41,7 +41,6 @@ const slider = document.querySelector('.slider');
 
 function renderProducts(products) {
   const local = localStorage.getItem('accessToken');
-  console.log(local);
   products.data.forEach((element, ind) => {
     const slider = document.createElement('div');
     slider.classList.add('slider-base');

@@ -149,6 +149,7 @@ p {
 .button-trash {
   border: none;
   width: auto;
+  margin: 0;
 }
 
 .one {
