@@ -132,6 +132,10 @@ p {
   margin: 20px auto 120px auto;
 }
 
+.message {
+  display: none;
+}
+
 .total-wrapper {
   display: flex;
   justify-content: space-between;

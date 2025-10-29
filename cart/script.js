@@ -135,13 +135,24 @@ function generateProducts() {
     forPay.classList.add('total-price');
     forPay.textContent = getPayment();
 
+    const successConfirmOrder = document.createElement('p');
+    successConfirmOrder.classList.add('message');
+    successConfirmOrder.textContent =
+      'Thank you for your order! Our manager will contact you shortly.';
+
     const confirmButton = document.createElement('button');
+    confirmButton.addEventListener('click', () => cleanCart(successConfirmOrder));
     confirmButton.classList.add('confirm');
     confirmButton.textContent = 'Confirm';
 
     totalPriceWrapper.append(addressQ, addressA);
     totalPriceWrapper2.append(pay, forPay);
-    wrapper.append(totalPriceWrapper, totalPriceWrapper2, confirmButton);
+    wrapper.append(
+      totalPriceWrapper,
+      totalPriceWrapper2,
+      successConfirmOrder,
+      confirmButton
+    );
   }
 
   generateIfNotToLogin(local, wrapper);
@@ -201,4 +212,13 @@ function generateIfNotToLogin(local, wrapper) {
     loginWrap.append(signButton, registerButton);
     wrapper.append(loginWrap);
   }
+}
+
+function cleanCart(successConfirmOrder) {
+  const carts = document.querySelectorAll('.cart');
+  carts.forEach((element) => element.remove());
+  localStorage.removeItem('cart');
+  successConfirmOrder.classList.remove('message');
+  quantityShow();
+  totalPriceToPay();
 }
