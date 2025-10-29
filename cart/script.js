@@ -179,7 +179,7 @@ function deleteOrder(event) {
   elementToDelete.remove();
   quantityShow();
   totalPriceToPay();
-  deleteConfirmButton(newCart);
+  deleteConfirmButton();
 }
 
 function totalPriceToPay() {
@@ -226,9 +226,13 @@ function cleanCart(successConfirmOrder) {
   totalPriceToPay();
 }
 
-function deleteConfirmButton(newCart) {
+function deleteConfirmButton() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const confirm = document.querySelector('.confirm');
-  if (newCart.length === 0) {
-    confirm.remove();
+  if (confirm) {
+    if (cart.length === 0) {
+      confirm.remove();
+    }
   }
 }
+deleteConfirmButton();
