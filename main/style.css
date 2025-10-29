@@ -222,12 +222,54 @@
   color: #888;
 }
 
+.reload-page {
+  display: flex;
+  justify-content: center;
+  margin: 100px auto;
+  align-items: center;
+  height: 20rem;
+  font-weight: 600;
+  font-size: 21px;
+  color: #888;
+  line-height: 1.5;
+}
+
 .borders {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 12px;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #555;
+}
+
+.loader::after {
+  content: '';
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  margin-left: 10px;
+  border: 3px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 .border {
   width: 40px;

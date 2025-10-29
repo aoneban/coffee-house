@@ -11,6 +11,8 @@ function getImage(idx) {
 }
 
 async function fetchProducts() {
+  const container = document.querySelector('.slider-line');
+  container.classList.add('loader');
   try {
     const response = await fetch(
       'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/products/favorites',
@@ -30,6 +32,10 @@ async function fetchProducts() {
     return data;
   } catch (error) {
     console.error('Error:', error);
+    const message = document.createElement('p');
+    message.classList.add('reload-page');
+    message.textContent = 'Something went wrong. Please, refresh the page.';
+    container.append(message);
     return [];
   }
 }
@@ -80,6 +86,8 @@ function renderProducts(products) {
 async function init() {
   try {
     const products = await fetchProducts();
+    const container = document.querySelector('.slider-line');
+    container.classList.remove('loader');
     renderProducts(products);
     sliders();
   } catch (err) {
