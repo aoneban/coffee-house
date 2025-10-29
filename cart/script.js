@@ -141,7 +141,9 @@ function generateProducts() {
       'Thank you for your order! Our manager will contact you shortly.';
 
     const confirmButton = document.createElement('button');
-    confirmButton.addEventListener('click', () => cleanCart(successConfirmOrder));
+    confirmButton.addEventListener('click', () =>
+      cleanCart(successConfirmOrder)
+    );
     confirmButton.classList.add('confirm');
     confirmButton.textContent = 'Confirm';
 
@@ -177,6 +179,7 @@ function deleteOrder(event) {
   elementToDelete.remove();
   quantityShow();
   totalPriceToPay();
+  deleteConfirmButton(newCart);
 }
 
 function totalPriceToPay() {
@@ -221,4 +224,11 @@ function cleanCart(successConfirmOrder) {
   successConfirmOrder.classList.remove('message');
   quantityShow();
   totalPriceToPay();
+}
+
+function deleteConfirmButton(newCart) {
+  const confirm = document.querySelector('.confirm');
+  if (newCart.length === 0) {
+    confirm.remove();
+  }
 }
