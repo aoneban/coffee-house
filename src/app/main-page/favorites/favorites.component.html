@@ -1,5 +1,17 @@
 <div id="favorites" class="favorites">
   <h2>Choose your <i>favorite</i> coffee</h2>
+  <div *ngFor="let product of favorites; index as i">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <strong>Цена: ${{ product.price }}</strong>
+    <span *ngIf="product.discountPrice"
+      >Скидка: ${{ product.discountPrice }}</span
+    >
+  </div>
+</div>
+<!-- `,
+<div id="favorites" class="favorites">
+  <h2>Choose your <i>favorite</i> coffee</h2>
   <div class="slider">
     <div class="slider-line"></div>
   </div>
@@ -44,4 +56,4 @@
       </svg>
     </button>
   </div>
-</div>
+</div> -->
