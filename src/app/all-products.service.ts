@@ -6,13 +6,12 @@ import { ProductsResponse } from './interfaces';
 @Injectable({
   providedIn: 'root',
 })
-export class FavoriteProductsService {
-  private apiUrl = 'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/products/favorites';
-
+export class AllProductsService {
+  private apiUrl = 'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/products';
   // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private http: HttpClient) {}
 
-  getFavorites(): Observable<ProductsResponse> {
+  getProducts(): Observable<ProductsResponse> {
     return this.http.get<ProductsResponse>(this.apiUrl, {
       headers: { accept: 'application/json' },
     });

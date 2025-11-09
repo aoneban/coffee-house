@@ -1,1 +1,60 @@
-<h2>Это компонент менюшки</h2>
+<main>
+  <h1 class="main-title">Behind each of our cups hides an <i>amazing surprise</i></h1>
+  <div class="product-tabs">
+    <input type="radio" id="coffee" name="options" value="coffee" checked />
+    <label for="coffee" class="label-with-image">
+      <span class="tabs-wrapper">
+        <img src="../assets/images/coffee-tab.png" alt="coffee-tab" class="tab-img" />
+      </span>
+      Coffee
+    </label>
+    <input type="radio" id="tea" name="options" value="tea" />
+    <label for="tea" class="label-with-image">
+      <span class="tabs-wrapper">
+        <img src="../assets/images/tea-tab.png" alt="tea-tab" class="tab-img" />
+      </span>
+      Tea
+    </label>
+    <input type="radio" id="dessert" name="options" value="dessert" />
+    <label for="dessert" class="label-with-image">
+      <span class="tabs-wrapper">
+        <img src="../assets/images/dessert-tab.png" alt="dessert-tab" class="tab-img" />
+      </span>
+      Dessert
+    </label>
+  </div>
+  <div class="product-list"></div>
+  <div class="reload-product">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="reload"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8"
+        stroke="#403F3D"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M17 8H21.4C21.7314 8 22 7.73137 22 7.4V3"
+        stroke="#403F3D"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+  <div class="product-list">
+    <div *ngFor="let product of products; index as i" class="product-wrapper hidden-class">
+      <span class="product-wrapper__image">
+        <img [src]="product.image" alt="{{ product.name }}" class="product-wrapper__img" />
+      </span>
+      <h3 class="product-wrapper__title">{{ product.name }}</h3>
+      <p class="product-wrapper__text">{{ product.description }}</p>
+      <p class="product-wrapper__price">${{ product.price }}</p>
+    </div>
+  </div>
+</main>

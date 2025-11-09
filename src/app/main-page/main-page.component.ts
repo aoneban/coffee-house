@@ -8,8 +8,6 @@ import { MobileComponent } from './mobile/mobile.component';
   selector: 'app-main-page',
   imports: [EnjoyComponent, FavoritesComponent, AboutComponent, MobileComponent],
   templateUrl: './main-page.component.html',
-  styleUrl: './main-page.component.scss'
+  styleUrl: './main-page.component.scss',
 })
-export class MainPageComponent {
-
-}
+export class MainPageComponent {}
