@@ -2,11 +2,11 @@ export const data = [
   {
     id: 1,
     name: 'Irish coffee',
-    description:'Fragrant black coffee with Jameson Irish whiskey and whipped milk',
+    description: 'Fragrant black coffee with Jameson Irish whiskey and whipped milk',
     price: '7.00',
     category: 'coffee',
-    image: './images/irish.png',
-    class: "vis",
+    image: '../../../../assets/images/irish.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -40,12 +40,11 @@ export const data = [
   {
     id: 2,
     name: 'Kahlua coffee',
-    description:
-      'Classic coffee with milk and Kahlua liqueur under a cap of frothed milk',
+    description: 'Classic coffee with milk and Kahlua liqueur under a cap of frothed milk',
     price: '7.00',
     category: 'coffee',
-    image: './images/kahlua.png',
-    class: "vis",
+    image: '../../../../assets/images/kahlua.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -82,8 +81,8 @@ export const data = [
     description: 'Espresso with frothed milk, cream and aromatic honey',
     price: '5.50',
     category: 'coffee',
-    image: './images/honey.png',
-    class: "vis",
+    image: '../../../../assets/images/honey.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -120,8 +119,8 @@ export const data = [
     description: 'Cappuccino with soft thick foam in summer version with ice',
     price: '5.00',
     category: 'coffee',
-    image: './images/cappuccino.png',
-    class: "vis",
+    image: '../../../../assets/images/cappuccino.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -158,8 +157,8 @@ export const data = [
     description: 'Classic black coffee',
     price: '4.50',
     category: 'coffee',
-    image: './images/espresso.png',
-    class: "vis",
+    image: '../../../../assets/images/espresso.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -193,12 +192,11 @@ export const data = [
   {
     id: 6,
     name: 'Latte',
-    description:
-      'Espresso coffee with the addition of steamed milk and dense milk foam',
+    description: 'Espresso coffee with the addition of steamed milk and dense milk foam',
     price: '5.50',
     category: 'coffee',
-    image: './images/latte.png',
-    class: "vis",
+    image: '../../../../assets/images/latte.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -235,8 +233,8 @@ export const data = [
     description: 'Espresso with frothed milk and chocolate',
     price: '5.50',
     category: 'coffee',
-    image: './images/macchiato.png',
-    class: "vis",
+    image: '../../../../assets/images/macchiato.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -273,8 +271,8 @@ export const data = [
     description: 'Fragrant black coffee with cognac and whipped cream',
     price: '6.50',
     category: 'coffee',
-    image: './images/cognac.png',
-    class: "vis",
+    image: '../../../../assets/images/cognac.png',
+    class: 'vis',
     sizes: {
       s: {
         size: '200 ml',
@@ -312,8 +310,8 @@ export const data = [
       'Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint',
     price: '4.50',
     category: 'tea',
-    image: './images/moroccan.png',
-    class: "hidden",
+    image: '../../../../assets/images/moroccan.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '200 ml',
@@ -350,8 +348,8 @@ export const data = [
     description: 'Original black tea with fresh ginger, lemon and honey',
     price: '5.00',
     category: 'tea',
-    image: './images/ginger.png',
-    class: "hidden",
+    image: '../../../../assets/images/ginger.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '200 ml',
@@ -388,8 +386,8 @@ export const data = [
     description: 'Invigorating black tea with cranberry and honey',
     price: '5.00',
     category: 'tea',
-    image: './images/cranberry.png',
-    class: "hidden",
+    image: '../../../../assets/images/cranberry.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '200 ml',
@@ -423,12 +421,11 @@ export const data = [
   {
     id: 12,
     name: 'Sea buckthorn',
-    description:
-      'Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon',
+    description: 'Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon',
     price: '5.50',
     category: 'tea',
-    image: './images/buckthorn.png',
-    class: "hidden",
+    image: '../../../../assets/images/buckthorn.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '200 ml',
@@ -462,12 +459,11 @@ export const data = [
   {
     id: 13,
     name: 'Marble cheesecake',
-    description:
-      'Philadelphia cheese with lemon zest on a light sponge cake and red currant jam',
+    description: 'Philadelphia cheese with lemon zest on a light sponge cake and red currant jam',
     price: '3.50',
     category: 'dessert',
-    image: './images/marble.png',
-    class: "hidden",
+    image: '../../../../assets/images/marble.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -504,8 +500,8 @@ export const data = [
     description: 'Layer cake with cream cheese frosting',
     price: '4.00',
     category: 'dessert',
-    image: './images/velvet.png',
-    class: "hidden",
+    image: '../../../../assets/images/velvet.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -543,8 +539,8 @@ export const data = [
       'Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar',
     price: '4.50',
     category: 'dessert',
-    image: './images/cheesecakes.png',
-    class: "hidden",
+    image: '../../../../assets/images/cheesecakes.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -578,12 +574,11 @@ export const data = [
   {
     id: 16,
     name: 'Creme brulee',
-    description:
-      'Delicate creamy dessert in a caramel basket with wild berries',
+    description: 'Delicate creamy dessert in a caramel basket with wild berries',
     price: '4.00',
     category: 'dessert',
-    image: './images/brulee.png',
-    class: "hidden",
+    image: '../../../../assets/images/brulee.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -620,8 +615,8 @@ export const data = [
     description: 'Tender pancakes with strawberry jam and fresh strawberries',
     price: '4.50',
     category: 'dessert',
-    image: './images/pancakes.png',
-    class: "hidden",
+    image: '../../../../assets/images/pancakes.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -658,8 +653,8 @@ export const data = [
     description: 'Classic honey cake with delicate custard',
     price: '4.50',
     category: 'dessert',
-    image: './images/honey-cake.png',
-    class: "hidden",
+    image: '../../../../assets/images/honey-cake.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -696,8 +691,8 @@ export const data = [
     description: 'Cake with hot chocolate filling and nuts with dried apricots',
     price: '5.50',
     category: 'dessert',
-    image: './images/chocolate.png',
-    class: "hidden",
+    image: '../../../../assets/images/chocolate.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
@@ -731,12 +726,11 @@ export const data = [
   {
     id: 20,
     name: 'Black forest',
-    description:
-      'A combination of thin sponge cake with cherry jam and light chocolate mousse',
+    description: 'A combination of thin sponge cake with cherry jam and light chocolate mousse',
     price: '6.50',
     category: 'dessert',
-    image: './images/forest.png',
-    class: "hidden",
+    image: '../../../../assets/images/forest.png',
+    class: 'hidden',
     sizes: {
       s: {
         size: '50 g',
