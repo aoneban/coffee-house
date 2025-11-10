@@ -1,23 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @angular-eslint/prefer-inject */
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllProductsService } from '../all-products.service';
 import { Product } from '../interfaces';
-import { data } from '../../../public/assets/data/data'; // ✅ перенести в src/app/assets
+import { data } from '../../../public/assets/data/data';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
 
 @Component({
   selector: 'app-menu-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ModalWindowComponent],
   templateUrl: './menu-page.component.html',
   styleUrl: './menu-page.component.scss',
 })
 export class MenuPageComponent implements OnInit {
+  selectedId = signal<number | null>(null);
   products: Product[] = [];
-  categories = ['coffee', 'tea', 'dessert'];
+  categories = [
+    { name: 'coffee', image: '../assets/images/coffee-tab.png' },
+    { name: 'tea', image: '../assets/images/tea-tab.png' },
+    { name: 'dessert', image: '../assets/images/dessert-tab.png' },
+  ];
   selected = new FormControl('coffee');
 
-  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private allProductsService: AllProductsService) {}
 
   ngOnInit(): void {
@@ -43,5 +49,9 @@ export class MenuPageComponent implements OnInit {
   get filteredProducts() {
     const cat = this.selected.value;
     return this.products.filter((p) => p.category === cat);
+  }
+
+  selectProduct(id: number) {
+    this.selectedId.set(id);
   }
 }

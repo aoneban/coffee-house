@@ -2,12 +2,18 @@
   <h1 class="main-title">Behind each of our cups hides an <i>amazing surprise</i></h1>
   <div class="product-tabs">
     <div *ngFor="let cat of categories">
-      <input type="radio" [id]="cat" name="options" [value]="cat" [formControl]="selected" />
-      <label [for]="cat" class="label-with-image">
+      <input
+        type="radio"
+        [id]="cat.name"
+        name="options"
+        [value]="cat.name"
+        [formControl]="selected"
+      />
+      <label [for]="cat.name" class="label-with-image">
         <span class="tabs-wrapper">
-          <img src="../assets/images/coffee-tab.png" alt="coffee-tab" class="tab-img" />
+          <img [src]="cat.image" [alt]="cat.name" class="tab-img" />
         </span>
-        {{ cat }}
+        {{ cat.name }}
       </label>
     </div>
   </div>
@@ -35,7 +41,11 @@
     </svg>
   </div>
   <div class="product-list">
-    <div *ngFor="let product of filteredProducts; index as i" class="product-wrapper hidden-class">
+    <div
+      *ngFor="let product of filteredProducts; index as i"
+      class="product-wrapper hidden-class"
+      (click)="selectProduct(product.id)"
+    >
       <span class="product-wrapper__image">
         <img [src]="product.image" alt="{{ product.name }}" class="product-wrapper__img" />
       </span>
@@ -44,4 +54,5 @@
       <p class="product-wrapper__price">${{ product.price }}</p>
     </div>
   </div>
+  <app-modal-window [productIdSignal]="selectedId"></app-modal-window>
 </main>
