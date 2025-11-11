@@ -54,5 +54,6 @@
       <p class="product-wrapper__price">${{ product.price }}</p>
     </div>
   </div>
-  <app-modal-window [productIdSignal]="selectedId"></app-modal-window>
+  <app-modal-window *ngIf="selectedId() !== null" [productIdSignal]="selectedId"></app-modal-window>
+
 </main>
