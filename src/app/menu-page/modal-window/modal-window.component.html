@@ -1,5 +1,12 @@
-<div>
-  <h3>{{ product?.name }}</h3>
-  <p>{{ product?.description }}</p>
-  <p>Цена: ${{ product?.price }}</p>
-</div>
+<ng-container *ngIf="data; else noData">
+  <h3>{{ data.name }}</h3>
+  <p>{{ data.description }}</p>
+  <p>Price: ${{ data.price }}</p>
+</ng-container>
+
+<ng-template #noData>
+  <div class="empty-state">
+    <p>Something went wrong...</p>
+    <p>Please try again</p>
+  </div>
+</ng-template>
