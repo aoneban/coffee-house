@@ -1,109 +1,29 @@
-import { data } from '../static/data.js';
-
-function getImage(idx) {
-  let img = '';
-  data.map((elem, _) => {
-    if (elem.id === idx) {
-      img = elem.image;
-    }
-  });
-  return img;
-}
-
-async function fetchProducts() {
-  const container = document.querySelector('.slider-line');
-  container.classList.add('loader');
-  try {
-    const response = await fetch(
-      'https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/products/favorites',
-      {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-        },
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error:', error);
-    const message = document.createElement('p');
-    message.classList.add('reload-page');
-    message.textContent = 'Something went wrong. Please, refresh the page.';
-    container.append(message);
-    return [];
-  }
-}
+import { dataSlider } from '../../static/dataSlider.js';
 
 const wrapperSlider = document.querySelector('.slider-line');
 const arrowRight = document.querySelector('.arrow-right');
 const arrowLeft = document.querySelector('.arrow-left');
 const slider = document.querySelector('.slider');
 
-function renderProducts(products) {
-  const local = localStorage.getItem('accessToken');
-  products.data.forEach((element, ind) => {
-    const slider = document.createElement('div');
-    slider.classList.add('slider-base');
-    slider.classList.add(`base-${ind}`);
+dataSlider.forEach((element, ind) => {
+  const slider = document.createElement('div');
+  slider.classList.add('slider-base');
+  slider.classList.add(`base-${ind}`);
+  slider.innerHTML = `
+          <img src="${element.image}" alt="coffee" class="coffee-slider">
+          <h4>${element.name}</h4>
+          <p class="favorites__text">${element.description}</p>
+          <p class="favorites__price">${element.price}</p>
+  `;
+  wrapperSlider.append(slider);
+});
 
-    const img = document.createElement('img');
-    img.src = getImage(element.id);
-    img.setAttribute('alt', 'coffee');
-    img.classList.add('coffee-slider');
-
-    const title = document.createElement('h4');
-    title.textContent = element.name;
-
-    const description = document.createElement('p');
-    description.classList.add('favorites__text');
-    description.textContent = element.description;
-
-    const discountPrice = document.createElement('p');
-    discountPrice.classList.add('favorites__price');
-    discountPrice.textContent = `$${(+element.price * 0.95).toFixed(2)}`;
-
-    const price = document.createElement('p');
-    price.textContent = `$${element.price}`;
-
-    if (local !== null) {
-      price.classList.add('old__price');
-      slider.append(img, title, description, discountPrice, price);
-    } else {
-      price.classList.add('favorites__price');
-      slider.append(img, title, description, price);
-    }
-
-    wrapperSlider.append(slider);
-  });
-}
-
-async function init() {
-  try {
-    const products = await fetchProducts();
-    const container = document.querySelector('.slider-line');
-    container.classList.remove('loader');
-    renderProducts(products);
-    sliders();
-  } catch (err) {
-    console.error('Error getting data:', err);
-  }
-}
-
-init();
-/** start slider */
-
-function sliders() {
+(function () {
   let startX;
   let startY;
   let count = 0;
   let borderCount = 0;
-  const slideWidth = 20;
+  const slideWidth = 30;
   const maxCount = slideWidth * 2;
 
   const sliderMoveToLeft = () => {
@@ -138,32 +58,32 @@ function sliders() {
     startInterval();
   });
 
-  slider.addEventListener('touchstart', function (event) {
+  slider.addEventListener('touchstart', function(event) {
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
   });
-
-  slider.addEventListener('touchmove', function (event) {
+  
+  slider.addEventListener('touchmove', function(event) {
     if (!startX || !startY) {
       return;
     }
-
+  
     let currentX = event.touches[0].clientX;
     let currentY = event.touches[0].clientY;
-
+  
     let diffX = startX - currentX;
     let diffY = startY - currentY;
-
+  
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (diffX > 0) {
         borderCount = 0;
-        sliderMoveToLeft();
+        sliderMoveToLeft()
       } else {
         borderCount = 0;
-        sliderMoveToRight();
+        sliderMoveToRight()
       }
     }
-
+  
     startX = null;
     startY = null;
   });
@@ -173,7 +93,7 @@ function sliders() {
     let currentBorder;
     if (count == 0) {
       currentBorder = 0;
-    } else if (count == 20) {
+    } else if (count == 30) {
       currentBorder = 1;
     } else {
       currentBorder = 2;
@@ -200,7 +120,8 @@ function sliders() {
 
   arrowRight.addEventListener('click', sliderMoveToLeft);
   arrowLeft.addEventListener('click', sliderMoveToRight);
-}
+})();
+
 
 //** finish slider *//
 
