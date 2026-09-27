@@ -128,6 +128,13 @@ dataSlider.forEach((element, ind) => {
 
 const wrap = document.querySelector('.burger-wrapper');
 wrap.addEventListener('click', (e) => {
+  let currentTheme = localStorage.getItem('theme');
+  const slider = document.getElementById('mySidenav');
+  if(currentTheme === 'true') {
+    slider.classList.add('dark')
+  } else {
+    slider.classList.remove('dark')
+  }
   changeBurger(e.target);
 });
 
@@ -156,12 +163,12 @@ const closeBurger = () => {
   }
 };
 
-const links = document.querySelectorAll('.burger-screen')
+const links = document.querySelectorAll('.burger-screen');
 links.forEach((elem) => {
   elem.addEventListener('click', (e) => {
     changeBurgerToLink(e.target);
-  })
-})
+  });
+});
 
 window.addEventListener('resize', closeBurger);
 
@@ -183,3 +190,48 @@ video.addEventListener('contextmenu', function (event) {
 });
 
 //** finish video *//
+
+//** start switch theme**//
+
+const checkbox = document.getElementById('switch-theme');
+checkbox.addEventListener('click', () => checkbox.checked ? dark() : white());
+
+function dark() {
+  localStorage.setItem('theme', true);
+  document.body.classList.add('dark');
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    link.classList.add('dark-color');
+  });
+  const allTexts = document.querySelectorAll('p');
+  allTexts.forEach((link) => {
+    link.classList.add('dark-color');
+  });
+}
+
+function white() {
+  localStorage.setItem('theme', false);
+  document.body.classList.remove('dark');
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    link.classList.remove('dark-color');
+  });
+  const allTexts = document.querySelectorAll('p');
+  allTexts.forEach((link) => {
+    link.classList.remove('dark-color');
+  });
+}
+
+(function(){
+  const checkbox = document.getElementById('switch-theme');
+  let currentTheme = localStorage.getItem('theme');
+  if(currentTheme === 'true') {
+    checkbox.checked = true
+    dark()
+  } else {
+    white()
+    checkbox.checked = false
+  }
+})()
+
+//** finish switch theme**//

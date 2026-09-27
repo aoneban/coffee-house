@@ -202,7 +202,7 @@ input[type='radio']:checked + label .tabs-wrapper {
   top: 20px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -216,28 +216,28 @@ input[type='radio']:checked + label .tabs-wrapper {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider-toggle:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
-  bottom: 4px;
+  bottom: 3px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider-toggle {
-  background-color: #2196F3;
+  background-color: #52420c;
 }
 
 input:focus + .slider-toggle {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #52420c;
 }
 
 input:checked + .slider-toggle:before {
@@ -256,6 +256,18 @@ input:checked + .slider-toggle:before {
 }
 
 /* toggle switch end*/
+
+/* change theme start*/
+
+.dark {
+  background-color: #352607!important;
+}
+
+.dark-color {
+  color: #d1a884!important;
+}
+
+/* change theme end*/
 
 @media (max-width: 1300px) {
   .product-list {
