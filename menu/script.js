@@ -101,6 +101,11 @@ reloadElementToPage();
 
 //////   start burger menu /////////
 
+const wrap = document.querySelector('.burger-wrapper');
+wrap.addEventListener('click', (e) => {
+  changeBurger(e.target);
+});
+
 function changeBurger(item) {
   const slider = document.getElementById('mySidenav');
   slider.style.display = 'block';

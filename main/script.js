@@ -58,32 +58,32 @@ dataSlider.forEach((element, ind) => {
     startInterval();
   });
 
-  slider.addEventListener('touchstart', function(event) {
+  slider.addEventListener('touchstart', function (event) {
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
   });
-  
-  slider.addEventListener('touchmove', function(event) {
+
+  slider.addEventListener('touchmove', function (event) {
     if (!startX || !startY) {
       return;
     }
-  
+
     let currentX = event.touches[0].clientX;
     let currentY = event.touches[0].clientY;
-  
+
     let diffX = startX - currentX;
     let diffY = startY - currentY;
-  
+
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (diffX > 0) {
         borderCount = 0;
-        sliderMoveToLeft()
+        sliderMoveToLeft();
       } else {
         borderCount = 0;
-        sliderMoveToRight()
+        sliderMoveToRight();
       }
     }
-  
+
     startX = null;
     startY = null;
   });
@@ -122,10 +122,14 @@ dataSlider.forEach((element, ind) => {
   arrowLeft.addEventListener('click', sliderMoveToRight);
 })();
 
-
 //** finish slider *//
 
 //** finish burger *//
+
+const wrap = document.querySelector('.burger-wrapper');
+wrap.addEventListener('click', (e) => {
+  changeBurger(e.target);
+});
 
 function changeBurger(item) {
   const slider = document.getElementById('mySidenav');
@@ -137,9 +141,7 @@ function changeBurger(item) {
 
 function changeBurgerToLink(item) {
   const element = document.querySelector('.burger-wrapper');
-  if (element.classList.contains('change')) {
-    element.classList.remove('change');
-  }
+  element.classList.toggle('change', false);
   changeBurger(item);
 }
 
@@ -153,6 +155,13 @@ const closeBurger = () => {
     document.body.classList.remove('hidden-screen');
   }
 };
+
+const links = document.querySelectorAll('.burger-screen')
+links.forEach((elem) => {
+  elem.addEventListener('click', (e) => {
+    changeBurgerToLink(e.target);
+  })
+})
 
 window.addEventListener('resize', closeBurger);
 
