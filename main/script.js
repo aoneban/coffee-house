@@ -1,4 +1,4 @@
-import { dataSlider } from '../../static/dataSlider.js';
+import { dataSlider } from '../static/dataSlider.js';
 
 const wrapperSlider = document.querySelector('.slider-line');
 const arrowRight = document.querySelector('.arrow-right');
