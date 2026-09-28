@@ -150,6 +150,7 @@ const modal = document.createElement('div');
 
 function modalWindowGenerator(event) {
   const local = localStorage.getItem('accessToken');
+  let currentTheme = localStorage.getItem('theme');
   setTimeout(calculationOptions, 0);
   document.body.style.position = 'fixed';
   const currentClickProduct = event.currentTarget;
@@ -215,6 +216,12 @@ function modalWindowGenerator(event) {
       <button type="button" class="cart-button">Add to cart</button>
   </div>
   `;
+
+  if(currentTheme === 'true') {
+    modalWrapper.classList.add('dark')
+  } else {
+    modalWrapper.classList.remove('dark')
+  }
   const priceEl = modalWrapper.querySelector('.total-price');
   priceEl.textContent = `$${result[0].price}`;
 

@@ -169,3 +169,48 @@ citySelect.addEventListener('change', function () {
     });
   }
 });
+
+//** start switch theme**//
+
+const checkbox = document.getElementById('switch-theme');
+checkbox.addEventListener('click', () => (checkbox.checked ? dark() : white()));
+
+function dark() {
+  localStorage.setItem('theme', true);
+  document.body.classList.add('dark');
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    link.classList.add('dark-color');
+  });
+  const allTexts = document.querySelectorAll('p');
+  allTexts.forEach((link) => {
+    link.classList.add('dark-color');
+  });
+}
+
+function white() {
+  localStorage.setItem('theme', false);
+  document.body.classList.remove('dark');
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    link.classList.remove('dark-color');
+  });
+  const allTexts = document.querySelectorAll('p');
+  allTexts.forEach((link) => {
+    link.classList.remove('dark-color');
+  });
+}
+
+(function () {
+  const checkbox = document.getElementById('switch-theme');
+  let currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'true') {
+    checkbox.checked = true;
+    dark();
+  } else {
+    white();
+    checkbox.checked = false;
+  }
+})();
+
+//** finish switch theme**//

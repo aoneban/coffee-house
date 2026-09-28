@@ -142,7 +142,7 @@ function generateProducts() {
 
     const confirmButton = document.createElement('button');
     confirmButton.addEventListener('click', () =>
-      cleanCart(successConfirmOrder)
+      cleanCart(successConfirmOrder),
     );
     confirmButton.classList.add('confirm');
     confirmButton.textContent = 'Confirm';
@@ -153,7 +153,7 @@ function generateProducts() {
       totalPriceWrapper,
       totalPriceWrapper2,
       successConfirmOrder,
-      confirmButton
+      confirmButton,
     );
   }
 
@@ -173,7 +173,7 @@ function deleteOrder(event) {
   const idElementToDelete = elementToDelete.dataset.id;
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let newCart = cart.filter(
-    (element) => element.unId !== Number(idElementToDelete)
+    (element) => element.unId !== Number(idElementToDelete),
   );
   localStorage.setItem('cart', JSON.stringify(newCart));
   elementToDelete.remove();
@@ -189,10 +189,12 @@ function totalPriceToPay() {
 
   const totalQuantity = cart.reduce(
     (sum, item) => sum + Number(item.totalPrice.slice(1)),
-    0
+    0,
   );
   price.textContent = `$${totalQuantity.toFixed(2)}`;
-  discount.textContent = `$${(totalQuantity * 0.95).toFixed(2)}`;
+  if (discount) {
+    discount.textContent = `$${(totalQuantity * 0.95).toFixed(2)}`;
+  }
 }
 
 function generateIfNotToLogin(local, wrapper) {
@@ -236,3 +238,48 @@ function deleteConfirmButton() {
   }
 }
 deleteConfirmButton();
+
+//** start switch theme**//
+
+const checkbox = document.getElementById('switch-theme');
+checkbox.addEventListener('click', () => (checkbox.checked ? dark() : white()));
+
+function dark() {
+  localStorage.setItem('theme', true);
+  document.body.classList.add('dark');
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    link.classList.add('dark-color');
+  });
+  const allTexts = document.querySelectorAll('p');
+  allTexts.forEach((link) => {
+    link.classList.add('dark-color');
+  });
+}
+
+function white() {
+  localStorage.setItem('theme', false);
+  document.body.classList.remove('dark');
+  const allLinks = document.querySelectorAll('a');
+  allLinks.forEach((link) => {
+    link.classList.remove('dark-color');
+  });
+  const allTexts = document.querySelectorAll('p');
+  allTexts.forEach((link) => {
+    link.classList.remove('dark-color');
+  });
+}
+
+(function () {
+  const checkbox = document.getElementById('switch-theme');
+  let currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'true') {
+    checkbox.checked = true;
+    dark();
+  } else {
+    white();
+    checkbox.checked = false;
+  }
+})();
+
+//** finish switch theme**//
